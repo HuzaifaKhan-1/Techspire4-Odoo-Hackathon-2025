@@ -363,10 +363,13 @@ a:hover {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
+  animation: logoGlow 3s ease-in-out infinite;
+  transition: all var(--transition-normal);
 }
 
-.nav-logo i {
-  color: var(--primary-color);
+.nav-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px var(--primary-color));
 }
 
 .nav-menu {
@@ -638,8 +641,9 @@ a:hover {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(25px);
   box-shadow: var(--glass-shadow);
-  max-width: 100%;
-  overflow-x: auto;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-item {
@@ -725,40 +729,7 @@ a:hover {
   margin: 0 var(--spacing-xs);
 }
 
-/* Feature Flow Images */
-.feature-item::after {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all var(--transition-normal);
-  z-index: 3;
-}
-
-.feature-item[data-flow="upload"]::after {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238b5cf6"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" /></svg>') center/contain;
-}
-
-.feature-item[data-flow="swap"]::after {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238b5cf6"><path d="M12,4C14.1,4 16.1,4.8 17.6,6.3C20.7,9.4 20.7,14.6 17.6,17.7C16.1,19.2 14.1,20 12,20C9.9,20 7.9,19.2 6.4,17.7C3.3,14.6 3.3,9.4 6.4,6.3C7.9,4.8 9.9,4 12,4M12,6C10.4,6 8.8,6.6 7.6,7.8C5.1,10.3 5.1,14.7 7.6,17.2C8.8,18.4 10.4,19 12,19C13.6,19 15.2,18.4 16.4,17.2C18.9,14.7 18.9,10.3 16.4,7.8C15.2,6.6 13.6,6 12,6Z" /></svg>') center/contain;
-}
-
-.feature-item[data-flow="earn"]::after {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238b5cf6"><path d="M15,4A8,8 0 0,1 23,12A8,8 0 0,1 15,20A8,8 0 0,1 7,12A8,8 0 0,1 15,4M15,18A6,6 0 0,0 21,12A6,6 0 0,0 15,6A6,6 0 0,0 9,12A6,6 0 0,0 15,18M17,12C17,10.89 16.1,10 15,10C13.89,10 13,10.89 13,12C13,13.11 13.89,14 15,14C16.1,14 17,13.11 17,12M15,1L17,4H13L15,1Z" /></svg>') center/contain;
-}
-
-.feature-item[data-flow="planet"]::after {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2310b981"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" /></svg>') center/contain;
-}
-
-.feature-item:hover::after {
-  opacity: 1;
-  transform: scale(1.2) rotate(360deg);
-}
+/* Remove duplicate feature images - keep only single icon per item */
 
 .hero-buttons {
   display: flex;
@@ -775,23 +746,45 @@ a:hover {
 }
 
 .fashion-showcase {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: var(--spacing-lg);
   perspective: 1000px;
+  min-height: 300px;
 }
 
 .showcase-item {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
   text-align: center;
   transition: all var(--transition-normal);
   animation: fashionFloat 6s ease-in-out infinite;
   position: relative;
   overflow: hidden;
+  flex: 0 0 auto;
+  width: 160px;
+}
+
+.showcase-item:nth-child(1) {
+  --base-y: -30px;
+  transform: translateY(-30px);
+  animation-delay: 0s;
+}
+
+.showcase-item:nth-child(2) {
+  --base-y: 30px;
+  transform: translateY(30px);
+  animation-delay: 2s;
+}
+
+.showcase-item:nth-child(3) {
+  --base-y: -30px;
+  transform: translateY(-30px);
+  animation-delay: 4s;
 }
 
 .showcase-item::before {
@@ -820,9 +813,9 @@ a:hover {
 }
 
 .showcase-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--spacing-md);
+  width: 50px;
+  height: 50px;
+  margin: 0 auto var(--spacing-sm);
   background: var(--gradient-primary);
   border-radius: 50%;
   display: flex;
@@ -834,10 +827,10 @@ a:hover {
 .showcase-icon::before {
   content: '';
   position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
   background: var(--gradient-primary);
   border-radius: 50%;
   opacity: 0.3;
@@ -845,20 +838,20 @@ a:hover {
 }
 
 .showcase-icon i {
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: white;
   z-index: 1;
 }
 
 .showcase-item h3 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
 
 .showcase-item p {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   margin: 0;
 }
@@ -1981,10 +1974,10 @@ section {
 
 @keyframes fashionFloat {
   0%, 100% {
-    transform: rotateY(-5deg) rotateX(2deg) translateY(0);
+    transform: rotateY(-5deg) rotateX(2deg) translateY(var(--base-y, 0));
   }
   50% {
-    transform: rotateY(-5deg) rotateX(2deg) translateY(-15px);
+    transform: rotateY(-5deg) rotateX(2deg) translateY(calc(var(--base-y, 0) - 15px));
   }
 }
 
@@ -2114,6 +2107,17 @@ section {
   }
 }
 
+@keyframes logoGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.6), 0 0 25px rgba(139, 92, 246, 0.4);
+    transform: scale(1.02);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
@@ -2180,10 +2184,10 @@ section {
   h2 { font-size: 2rem; }
 
   .hero-features {
-    justify-content: flex-start;
+    justify-content: center;
     gap: var(--spacing-xs);
-    overflow-x: auto;
     padding: var(--spacing-md);
+    flex-wrap: wrap;
   }
 
   .feature-item {
@@ -2209,6 +2213,21 @@ section {
   .hero-buttons .btn {
     width: 100%;
     max-width: 300px;
+  }
+
+  .fashion-showcase {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    min-height: auto;
+  }
+
+  .showcase-item:nth-child(1),
+  .showcase-item:nth-child(2),
+  .showcase-item:nth-child(3) {
+    --base-y: 0px;
+    transform: translateY(0);
+    width: 100%;
+    max-width: 280px;
   }
 
   .hero-stats {

@@ -9,7 +9,6 @@ let uploadedImages = [];
 let currentImageIndex = 0;
 let selectedImages = [];
 
-
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all elements
@@ -36,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load page-specific functionality
     initializePageSpecific();
+    
+    // Initialize scroll animations
+    initializeScrollAnimations();
 });
 
 // Initialize all DOM elements
@@ -48,9 +50,54 @@ function initializeElements() {
 // Loading Screen Animation
 function initializeLoadingScreen() {
     if (loadingScreen) {
+        // Wait for all images to load, then hide loading screen
+        const images = document.querySelectorAll('.clothes-item-bg');
+        let loadedImages = 0;
+        let totalImages = images.length;
+        
+        if (totalImages === 0) {
+            // No images to load, hide immediately
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1000);
+            return;
+        }
+        
+        // Function to hide loading screen
+        function hideLoadingScreen() {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500);
+        }
+        
+        // Check if image is loaded
+        function checkImageLoaded() {
+            loadedImages++;
+            if (loadedImages >= totalImages || loadedImages >= 8) { // Hide after 8 images load or all load
+                hideLoadingScreen();
+            }
+        }
+        
+        // Add load listeners to carousel images
+        images.forEach((item, index) => {
+            const bgImage = window.getComputedStyle(item).backgroundImage;
+            if (bgImage && bgImage !== 'none') {
+                const imageUrl = bgImage.slice(4, -1).replace(/["']/g, "");
+                const img = new Image();
+                img.onload = checkImageLoaded;
+                img.onerror = checkImageLoaded; // Continue even if some images fail
+                img.src = imageUrl;
+            } else {
+                checkImageLoaded();
+            }
+        });
+        
+        // Fallback timeout
         setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-        }, 2000);
+            if (!loadingScreen.classList.contains('hidden')) {
+                hideLoadingScreen();
+            }
+        }, 3000);
     }
 }
 
@@ -1811,3 +1858,69 @@ notificationStyles.textContent = `
 `;
 
 document.head.appendChild(notificationStyles);
+
+// Scroll-based entrance animations
+function initializeScrollAnimations() {
+    // Create intersection observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Animate showcase items individually
+                if (entry.target.classList.contains('fashion-showcase')) {
+                    const showcaseItems = entry.target.querySelectorAll('.showcase-item');
+                    showcaseItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 200);
+                    });
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll([
+        '.hero-text',
+        '.hero-visual', 
+        '.fashion-showcase',
+        '.clothes-gallery',
+        '.stats-section',
+        '.cta-section',
+        '.footer'
+    ].join(','));
+
+    animatedElements.forEach(element => {
+        if (element) {
+            observer.observe(element);
+        }
+    });
+
+    // Initial animation for hero section (visible immediately)
+    setTimeout(() => {
+        const heroText = document.querySelector('.hero-text');
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroText) heroText.classList.add('visible');
+        if (heroVisual) heroVisual.classList.add('visible');
+    }, 300);
+
+    console.log('Scroll animations initialized');
+}
+
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    const toggle = document.querySelector(`[onclick="togglePassword('${fieldId}')"]`);
+    
+    if (field.type === 'password') {
+        field.type = 'text';
+        toggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    } else {
+        field.type = 'password';
+        toggle.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}

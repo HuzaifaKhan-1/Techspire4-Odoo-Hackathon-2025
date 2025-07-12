@@ -539,7 +539,7 @@ a:hover {
 .hero-text {
   animation: slideInLeft 1s ease-out;
 }
-
+/* 
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -557,7 +557,36 @@ a:hover {
   box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
   position: relative;
   overflow: hidden;
+} */
+
+.title-and-badge {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space between ReWear and badge */
 }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(168, 85, 247, 0.15));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 150px;
+  padding: 0.4rem 0.8rem; /* reduced for alignment */
+  margin-bottom: 0; /* no space below since inline */
+  backdrop-filter: blur(25px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  animation: fadeInUp 1s ease-out, badgePulse 3s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 20px;
+}
+
 
 .hero-badge::before {
   content: '';
@@ -2340,3 +2369,4 @@ a:focus {
     color: black !important;
   }
 }
+

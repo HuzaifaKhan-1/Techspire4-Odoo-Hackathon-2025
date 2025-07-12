@@ -323,32 +323,52 @@ function renderItems(items, container) {
     }
     
     container.innerHTML = items.map(item => `
-        <div class="clothing-item" onclick="window.location.href='item-detail.html?id=${item.id}'"
-             data-gender="${item.gender}" 
-             data-category="${item.category}"
-             data-size="${item.size}"
-             data-condition="${item.condition}"
-             data-color="${item.color}"
-             data-points="${item.points}">
-            <div class="item-image">
-                <img src="${item.images[0]}" alt="${item.title}" loading="lazy">
-                <div class="item-overlay">
-                    <button class="quick-view-btn" onclick="event.stopPropagation(); quickViewItem('${item.id}')">
-                        Quick View
-                    </button>
-                </div>
-            </div>
-            <div class="item-details">
-                <h4>${item.title}</h4>
-                <p class="item-category">${item.category} • ${item.brand}</p>
-                <div class="item-meta">
-                    <span class="points">${item.points} pts</span>
-                    <span class="size">Size ${item.size}</span>
-                </div>
-                <div class="condition ${item.condition}">${item.condition}</div>
+    <div class="clothing-item animated-card" onclick="window.location.href='item-detail.html?id=${item.id}'"
+         data-gender="${item.gender}" 
+         data-category="${item.category}"
+         data-size="${item.size}"
+         data-condition="${item.condition}"
+         data-color="${item.color}"
+         data-points="${item.points}">
+        
+        <div class="item-image">
+            <img src="${item.images[0]}" alt="${item.title}" loading="lazy">
+            <div class="item-overlay">
+                <button class="quick-view-btn" onclick="event.stopPropagation(); quickViewItem('${item.id}')">
+                    Quick View
+                </button>
             </div>
         </div>
-    `).join('');
+
+        <div class="item-details">
+            <h4>${item.title}</h4>
+            <p class="item-category">${item.category} • ${item.brand}</p>
+            <div class="item-meta">
+                <span class="points">${item.points} pts</span>
+                <span class="size">Size ${item.size}</span>
+            </div>
+            <div class="condition ${item.condition}">${item.condition}</div>
+            <div class="like-share">
+                <button class="like-btn" onclick="event.stopPropagation(); toggleLike(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <button class="share-btn" onclick="event.stopPropagation(); shareItem('${item.title}')">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+`).join('');
+function toggleLike(button) {
+    button.classList.toggle("liked");
+}
+
+function shareItem(itemTitle) {
+    navigator.clipboard.writeText(window.location.href);
+    showNotification(`Link for "${itemTitle}" copied to clipboard`, 'info');
+}
+
+
 }
 
 // Form handling

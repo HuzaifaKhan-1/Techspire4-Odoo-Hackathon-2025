@@ -1,372 +1,696 @@
-
-// Sample data for items
-const sampleItems = [
-    {
-        id: 1,
-        title: "Vintage Denim Jacket",
-        description: "Classic vintage denim jacket in excellent condition. Perfect for sustainable fashion lovers.",
-        category: "clothing",
-        condition: "good",
-        size: "m",
-        points: 85,
-        imageUrl: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=300&h=200&fit=crop"
-    },
-    {
-        id: 2,
-        title: "Wireless Bluetooth Headphones",
-        description: "High-quality wireless headphones with noise cancellation. Barely used.",
-        category: "electronics",
-        condition: "new",
-        size: "",
-        points: 120,
-        imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop"
-    },
-    {
-        id: 3,
-        title: "Programming Books Collection",
-        description: "Set of 5 programming books including JavaScript, Python, and React guides.",
-        category: "books",
-        condition: "good",
-        size: "",
-        points: 60,
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop"
-    },
-    {
-        id: 4,
-        title: "Yoga Mat & Accessories",
-        description: "Complete yoga set with mat, blocks, and strap. Great for home workouts.",
-        category: "sports",
-        condition: "fair",
-        size: "",
-        points: 45,
-        imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop"
-    },
-    {
-        id: 5,
-        title: "Indoor Plant Collection",
-        description: "Beautiful collection of 3 indoor plants with pots. Perfect for your home garden.",
-        category: "home",
-        condition: "good",
-        size: "",
-        points: 35,
-        imageUrl: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop"
-    },
-    {
-        id: 6,
-        title: "Designer Sneakers",
-        description: "Limited edition designer sneakers in great condition. Size 9.",
-        category: "clothing",
-        condition: "good",
-        size: "l",
-        points: 95,
-        imageUrl: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop"
-    }
-];
-
-// DOM Elements
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const pages = document.querySelectorAll('.page');
-const itemsGrid = document.getElementById('items-grid');
-const chatToggle = document.getElementById('chat-toggle');
-const chatWindow = document.getElementById('chat-window');
-const chatClose = document.getElementById('chat-close');
-const chatInput = document.getElementById('chat-input');
-const sendMessage = document.getElementById('send-message');
-const chatMessages = document.getElementById('chat-messages');
-
-// Filter elements
-const categoryFilter = document.getElementById('category-filter');
-const sizeFilter = document.getElementById('size-filter');
-const conditionFilter = document.getElementById('condition-filter');
-const searchInput = document.getElementById('search-input');
-const applyFilters = document.getElementById('apply-filters');
-
-// Chat bot responses
-const botResponses = {
-    'hello': "Hello! Welcome to SustainableSwap! How can I help you get started with eco-friendly swapping?",
-    'how to swap': "Swapping is easy! Just browse items, find something you like, and click to make a swap request. The owner will review and approve if they're interested in your items.",
-    'upload': "To upload an item, go to the Upload page, fill in the details about your item, add a photo, and submit. Your item will be listed for others to see!",
-    'points': "You earn eco-points for every successful swap! These points show your positive environmental impact and can unlock special badges.",
-    'categories': "We have items in clothing, electronics, books, home & garden, and sports categories. Use the filters to find exactly what you're looking for!",
-    'condition': "Items are rated as 'Like New', 'Good', or 'Fair' condition. This helps you know what to expect when swapping.",
-    'sustainable': "Every swap you make saves items from landfills and reduces the need for new production. You're helping create a circular economy!",
-    'badges': "Earn badges by completing swaps, saving CO2, and being an active community member. Check the Badges page to see your progress!",
-    'default': "I'm here to help with any questions about sustainable swapping! You can ask me about how to swap, upload items, earn points, or anything else."
-};
-
-// Initialize the application
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializeNavigation();
-    initializeFilters();
-    initializeChatAssistant();
-    loadItems();
-    initializeForms();
+    initializeApp();
 });
 
-// Navigation functionality
+// Initialize Application
+function initializeApp() {
+    initializeLoadingScreen();
+    initializeNavigation();
+    initializeThemeToggle();
+    initializeScrollAnimations();
+    initializeParticles();
+    initializeCounters();
+    initializeClothingFilters();
+    initializeUploadForm();
+    initializeContactForm();
+    initializeSmoothScrolling();
+    initializeParallax();
+    initializeHeroInteractivity();
+}
+
+// Loading Screen
+function initializeLoadingScreen() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    // Simulate loading time - reduced for faster loading
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }, 1500);
+    
+    // Hide loading screen when page is fully loaded
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 500);
+    });
+}
+
+// Navigation
 function initializeNavigation() {
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
     // Mobile menu toggle
-    hamburger.addEventListener('click', () => {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
-
-    // Page navigation
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+    
+    // Active link highlighting
+    function setActiveLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPos = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', setActiveLink);
+    
+    // Close mobile menu on link click
     navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetPage = link.dataset.page;
-            showPage(targetPage);
-            
-            // Update active state
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            
-            // Close mobile menu
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
             navMenu.classList.remove('active');
         });
     });
 }
 
-// Show specific page
-function showPage(pageId) {
-    pages.forEach(page => {
-        page.classList.remove('active');
-    });
+// Theme Toggle
+function initializeThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
     
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    }
-}
-
-// Filter functionality
-function initializeFilters() {
-    applyFilters.addEventListener('click', filterItems);
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
     
-    // Also filter on enter key in search input
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            filterItems();
-        }
-    });
-}
-
-// Filter items based on selected criteria
-function filterItems() {
-    const category = categoryFilter.value.toLowerCase();
-    const size = sizeFilter.value.toLowerCase();
-    const condition = conditionFilter.value.toLowerCase();
-    const search = searchInput.value.toLowerCase();
-    
-    const filteredItems = sampleItems.filter(item => {
-        const matchesCategory = !category || item.category.toLowerCase() === category;
-        const matchesSize = !size || item.size.toLowerCase() === size;
-        const matchesCondition = !condition || item.condition.toLowerCase() === condition;
-        const matchesSearch = !search || 
-            item.title.toLowerCase().includes(search) || 
-            item.description.toLowerCase().includes(search);
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        return matchesCategory && matchesSize && matchesCondition && matchesSearch;
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        
+        // Add transition class for smooth theme change
+        document.body.style.transition = 'all 0.3s ease';
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 300);
     });
     
-    displayItems(filteredItems);
+    function updateThemeIcon(theme) {
+        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
 }
 
-// Load and display items
-function loadItems() {
-    displayItems(sampleItems);
-}
-
-// Display items in grid
-function displayItems(items) {
-    itemsGrid.innerHTML = '';
+// Scroll Animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
-    if (items.length === 0) {
-        itemsGrid.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: #64748b; font-size: 1.1rem;">No items found matching your criteria.</p>';
-        return;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements with animation classes
+    const animatedElements = document.querySelectorAll('.about-card, .timeline-item, .team-member, .project-card');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Particle System
+function initializeParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        createParticle(particlesContainer);
     }
     
-    items.forEach(item => {
-        const itemCard = createItemCard(item);
-        itemsGrid.appendChild(itemCard);
-    });
-}
-
-// Create item card element
-function createItemCard(item) {
-    const card = document.createElement('div');
-    card.className = 'item-card';
-    card.innerHTML = `
-        <img src="${item.imageUrl}" alt="${item.title}" class="item-image">
-        <div class="item-info">
-            <h3 class="item-title">${item.title}</h3>
-            <p class="item-description">${item.description}</p>
-            <div class="item-meta">
-                <span class="item-category">${capitalizeFirst(item.category)}</span>
-                <span class="item-condition">${capitalizeFirst(item.condition)}</span>
-            </div>
-            <div class="item-points">${item.points} eco-points</div>
-        </div>
+    function createParticle(container) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 4 + 1 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.1})`;
+        particle.style.borderRadius = '50%';
+        particle.style.pointerEvents = 'none';
+        
+        // Random position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Animation
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.animation = `particleFloat ${duration}s ${delay}s infinite linear`;
+        
+        container.appendChild(particle);
+        
+        // Remove and recreate particle after animation
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+                createParticle(container);
+            }
+        }, (duration + delay) * 1000);
+    }
+    
+    // Add CSS for particle animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     `;
-    
-    card.addEventListener('click', () => {
-        showItemDetails(item);
-    });
-    
-    return card;
+    document.head.appendChild(style);
 }
 
-// Show item details (placeholder function)
-function showItemDetails(item) {
-    alert(`${item.title}\n\n${item.description}\n\nCondition: ${capitalizeFirst(item.condition)}\nPoints: ${item.points}\n\nClick OK to make a swap request!`);
-}
-
-// Chat assistant functionality
-function initializeChatAssistant() {
-    chatToggle.addEventListener('click', () => {
-        chatWindow.classList.toggle('active');
-    });
+// Animated Counters
+function initializeCounters() {
+    const counters = document.querySelectorAll('.stat-number');
     
-    chatClose.addEventListener('click', () => {
-        chatWindow.classList.remove('active');
-    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
     
-    sendMessage.addEventListener('click', sendChatMessage);
+    counters.forEach(counter => observer.observe(counter));
     
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendChatMessage();
-        }
-    });
-}
-
-// Send chat message
-function sendChatMessage() {
-    const message = chatInput.value.trim();
-    if (!message) return;
-    
-    // Add user message
-    addChatMessage(message, 'user');
-    
-    // Clear input
-    chatInput.value = '';
-    
-    // Generate bot response
-    setTimeout(() => {
-        const response = generateBotResponse(message);
-        addChatMessage(response, 'bot');
-    }, 1000);
-}
-
-// Add message to chat
-function addChatMessage(message, sender) {
-    const messageElement = document.createElement('div');
-    messageElement.className = `message ${sender}-message`;
-    messageElement.innerHTML = `<p>${message}</p>`;
-    
-    chatMessages.appendChild(messageElement);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-// Generate bot response
-function generateBotResponse(userMessage) {
-    const message = userMessage.toLowerCase();
-    
-    for (const keyword in botResponses) {
-        if (message.includes(keyword)) {
-            return botResponses[keyword];
-        }
-    }
-    
-    return botResponses.default;
-}
-
-// Initialize forms
-function initializeForms() {
-    const uploadForm = document.getElementById('upload-form');
-    if (uploadForm) {
-        uploadForm.addEventListener('submit', handleUploadForm);
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            if (target >= 1000) {
+                element.textContent = (current / 1000).toFixed(1) + 'K';
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
     }
 }
 
-// Handle upload form submission
-function handleUploadForm(e) {
-    e.preventDefault();
+// Clothing Filters
+function initializeClothingFilters() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sizeFilter = document.getElementById('sizeFilter');
+    const conditionFilter = document.getElementById('conditionFilter');
+    const clothingItems = document.querySelectorAll('.clothing-item');
     
-    const title = document.getElementById('item-title').value;
-    const description = document.getElementById('item-description').value;
-    const category = document.getElementById('item-category').value;
-    const condition = document.getElementById('item-condition').value;
-    
-    if (!title || !description || !category || !condition) {
-        alert('Please fill in all required fields.');
-        return;
-    }
-    
-    // Simulate upload success
-    alert('Item uploaded successfully! It will appear in the browse section.');
-    
-    // Reset form
-    e.target.reset();
-    
-    // Go back to browse page
-    showPage('home');
-    navLinks.forEach(l => l.classList.remove('active'));
-    document.querySelector('[data-page="home"]').classList.add('active');
-}
-
-// Utility function to capitalize first letter
-function capitalizeFirst(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-// Add some interactivity to the hero section
-document.addEventListener('DOMContentLoaded', function() {
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', () => {
-            // Scroll to items section or show browse page
-            showPage('home');
-            setTimeout(() => {
-                const itemsSection = document.querySelector('.items-section');
-                if (itemsSection) {
-                    itemsSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
+    function filterItems() {
+        const category = categoryFilter ? categoryFilter.value : '';
+        const size = sizeFilter ? sizeFilter.value : '';
+        const condition = conditionFilter ? conditionFilter.value : '';
+        
+        clothingItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            const itemSize = item.getAttribute('data-size');
+            const itemCondition = item.getAttribute('data-condition');
+            
+            const showItem = 
+                (!category || itemCategory === category) &&
+                (!size || itemSize === size) &&
+                (!condition || itemCondition === condition);
+            
+            if (showItem) {
+                item.style.display = 'block';
+                item.style.animation = 'fadeInUp 0.5s ease';
+            } else {
+                item.style.display = 'none';
+            }
         });
     }
-});
+    
+    if (categoryFilter) categoryFilter.addEventListener('change', filterItems);
+    if (sizeFilter) sizeFilter.addEventListener('change', filterItems);
+    if (conditionFilter) conditionFilter.addEventListener('change', filterItems);
+}
 
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Contact Form
+function initializeContactForm() {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+        
+        // Validate form
+        if (validateForm(data)) {
+            // Show success message
+            showNotification('Message sent successfully!', 'success');
+            form.reset();
+        } else {
+            showNotification('Please fill in all fields correctly.', 'error');
         }
     });
-});
-
-// Add loading animation for better UX
-function showLoading() {
-    itemsGrid.innerHTML = '<div style="text-align: center; grid-column: 1 / -1;"><div class="loading">Loading items...</div></div>';
+    
+    function validateForm(data) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        return data.name.trim() !== '' &&
+               emailRegex.test(data.email) &&
+               data.subject.trim() !== '' &&
+               data.message.trim() !== '';
+    }
 }
 
-// Simulate API calls with loading states
-function simulateApiCall(callback, delay = 1000) {
-    showLoading();
-    setTimeout(callback, delay);
+// Smooth Scrolling
+function initializeSmoothScrolling() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80; // Account for navbar height
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }
 
-// Enhanced filter functionality with debouncing
-let filterTimeout;
-searchInput.addEventListener('input', () => {
-    clearTimeout(filterTimeout);
-    filterTimeout = setTimeout(filterItems, 300);
+// Parallax Effects
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.floating-cards, .hero-visual');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        parallaxElements.forEach(element => {
+            element.style.transform = `translate3d(0, ${rate}px, 0)`;
+        });
+    });
+}
+
+// Notification System
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Style the notification
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '16px 24px',
+        borderRadius: '8px',
+        color: 'white',
+        fontWeight: '500',
+        zIndex: '10000',
+        transform: 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px',
+        wordWrap: 'break-word'
+    });
+    
+    // Set background color based on type
+    const colors = {
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b',
+        info: '#3b82f6'
+    };
+    notification.style.background = colors[type] || colors.info;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Keyboard Navigation Enhancement
+document.addEventListener('keydown', (e) => {
+    // ESC key closes mobile menu
+    if (e.key === 'Escape') {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
 });
+
+// Performance Optimization: Debounced Scroll Handler
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debouncing to scroll-heavy functions
+const debouncedScrollHandler = debounce(() => {
+    // Any scroll-intensive operations can go here
+}, 16);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Lazy Loading for Images (if any are added later)
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading
+initializeLazyLoading();
+
+// Service Worker Registration (Progressive Web App support)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
+// Error Handling for Production
+window.addEventListener('error', (e) => {
+    console.error('Global error caught:', e.error);
+    // Could send error reports to monitoring service
+});
+
+// Accessibility: Focus management
+function manageFocus() {
+    // Skip to content link for screen readers
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    
+    Object.assign(skipLink.style, {
+        position: 'absolute',
+        top: '-40px',
+        left: '6px',
+        background: 'var(--primary-color)',
+        color: 'white',
+        padding: '8px',
+        textDecoration: 'none',
+        borderRadius: '4px',
+        zIndex: '10000'
+    });
+    
+    skipLink.addEventListener('focus', () => {
+        skipLink.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', () => {
+        skipLink.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+}
+
+// Initialize accessibility features
+manageFocus();
+
+// Upload Form
+function initializeUploadForm() {
+    const uploadForm = document.getElementById('uploadForm');
+    const fileUploadArea = document.getElementById('fileUploadArea');
+    const itemImage = document.getElementById('itemImage');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const removeImage = document.getElementById('removeImage');
+    const uploadPlaceholder = document.querySelector('.upload-placeholder');
+    
+    if (!uploadForm) return;
+    
+    // File upload handling
+    fileUploadArea.addEventListener('click', () => {
+        itemImage.click();
+    });
+    
+    fileUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileUploadArea.classList.add('drag-over');
+    });
+    
+    fileUploadArea.addEventListener('dragleave', () => {
+        fileUploadArea.classList.remove('drag-over');
+    });
+    
+    fileUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileUploadArea.classList.remove('drag-over');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            handleFileSelect(files[0]);
+        }
+    });
+    
+    itemImage.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleFileSelect(e.target.files[0]);
+        }
+    });
+    
+    removeImage.addEventListener('click', () => {
+        itemImage.value = '';
+        imagePreview.style.display = 'none';
+        uploadPlaceholder.style.display = 'flex';
+    });
+    
+    function handleFileSelect(file) {
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = 'block';
+                uploadPlaceholder.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    // Form submission
+    uploadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(uploadForm);
+        const itemData = {
+            name: formData.get('itemName'),
+            category: formData.get('itemCategory'),
+            size: formData.get('itemSize'),
+            condition: formData.get('itemCondition'),
+            description: formData.get('itemDescription'),
+            tags: formData.get('itemTags'),
+            image: itemImage.files[0]
+        };
+        
+        // Simulate upload
+        if (validateUploadForm(itemData)) {
+            showNotification('Item uploaded successfully! You earned 50 points.', 'success');
+            uploadForm.reset();
+            imagePreview.style.display = 'none';
+            uploadPlaceholder.style.display = 'flex';
+        } else {
+            showNotification('Please fill in all required fields.', 'error');
+        }
+    });
+    
+    function validateUploadForm(data) {
+        return data.name.trim() !== '' &&
+               data.category !== '' &&
+               data.size !== '' &&
+               data.condition !== '';
+    }
+}
+
+// Hero Section Interactive Elements  
+function initializeHeroInteractivity() {
+    const uploadBtn = document.getElementById('uploadBtn');
+    const browseBtn = document.getElementById('browseBtn');
+    
+    if (uploadBtn) {
+        uploadBtn.addEventListener('click', () => {
+            document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
+    if (browseBtn) {
+        browseBtn.addEventListener('click', () => {
+            document.getElementById('browse').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+}
+
+// Advanced Animations for Enhanced UX
+function initializeAdvancedAnimations() {
+    // Magnetic effect for buttons
+    const magneticElements = document.querySelectorAll('.btn');
+    
+    magneticElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'translate(0, 0)';
+        });
+    });
+    
+    // Tilt effect for cards
+    const tiltElements = document.querySelectorAll('.glass-card');
+    
+    tiltElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    });
+}
+
+// Initialize advanced animations
+initializeAdvancedAnimations();
+
+// Newsletter Subscription
+function initializeNewsletter() {
+    const newsletterForm = document.querySelector('.newsletter-form');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                showNotification('Thank you for subscribing!', 'success');
+                newsletterForm.querySelector('input[type="email"]').value = '';
+            }
+        });
+    }
+}
+
+// Initialize newsletter
+initializeNewsletter();

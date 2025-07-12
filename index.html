@@ -1,313 +1,593 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SustainableSwap - Swap, Share, Sustain</title>
+    <title>ReWear - Sustainable Clothing Exchange Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="ReWear - Sustainable Clothing Exchange Platform by Team Techspire4">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>🌱 SustainableSwap</h2>
-                </div>
-                
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link active" data-page="home">Browse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#upload" class="nav-link" data-page="upload">Upload</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#dashboard" class="nav-link" data-page="dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#badges" class="nav-link" data-page="badges">Badges</a>
-                    </li>
-                </ul>
-                
-                <div class="nav-auth">
-                    <button class="btn-signup">Sign Up</button>
-                    <button class="btn-login">Login</button>
-                </div>
-                
-                <div class="hamburger" id="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="logo-animation">
+                <div class="logo-particles"></div>
+                <h1 class="loading-title">♻️ ReWear</h1>
             </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Swap, Share, Sustain</h1>
-                    <p>Join the circular economy revolution. Trade your pre-loved items and earn eco-points while reducing waste.</p>
-                    <button class="cta-button">Start Swapping</button>
-                </div>
-                
-                <div class="hero-images">
-                    <div class="image-slider">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" alt="Sustainable fashion">
-                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&h=300&fit=crop" alt="Eco-friendly items">
-                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop" alt="Vintage clothing">
-                        <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&h=300&fit=crop" alt="Sustainable living">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=300&fit=crop" alt="Green lifestyle">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Filter Bar -->
-            <section class="filter-section">
-                <div class="container">
-                    <h3>Browse Items</h3>
-                    <div class="filters">
-                        <select id="category-filter" class="filter-select">
-                            <option value="">All Categories</option>
-                            <option value="clothing">Clothing</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="books">Books</option>
-                            <option value="home">Home & Garden</option>
-                            <option value="sports">Sports</option>
-                        </select>
-                        
-                        <select id="size-filter" class="filter-select">
-                            <option value="">All Sizes</option>
-                            <option value="xs">XS</option>
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="xl">XL</option>
-                        </select>
-                        
-                        <select id="condition-filter" class="filter-select">
-                            <option value="">All Conditions</option>
-                            <option value="new">Like New</option>
-                            <option value="good">Good</option>
-                            <option value="fair">Fair</option>
-                        </select>
-                        
-                        <input type="text" id="search-input" placeholder="Search items..." class="search-input">
-                        <button id="apply-filters" class="filter-btn">Apply Filters</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Items Grid -->
-            <section class="items-section">
-                <div class="container">
-                    <div class="items-grid" id="items-grid">
-                        <!-- Items will be populated by JavaScript -->
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Upload Page -->
-        <div id="upload" class="page">
-            <section class="upload-section">
-                <div class="container">
-                    <h2>Upload Your Item</h2>
-                    <form class="upload-form" id="upload-form">
-                        <div class="form-group">
-                            <label for="item-title">Item Title</label>
-                            <input type="text" id="item-title" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="item-description">Description</label>
-                            <textarea id="item-description" rows="4" required></textarea>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="item-category">Category</label>
-                                <select id="item-category" required>
-                                    <option value="">Select Category</option>
-                                    <option value="clothing">Clothing</option>
-                                    <option value="electronics">Electronics</option>
-                                    <option value="books">Books</option>
-                                    <option value="home">Home & Garden</option>
-                                    <option value="sports">Sports</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="item-condition">Condition</label>
-                                <select id="item-condition" required>
-                                    <option value="">Select Condition</option>
-                                    <option value="new">Like New</option>
-                                    <option value="good">Good</option>
-                                    <option value="fair">Fair</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="item-image">Upload Image</label>
-                            <input type="file" id="item-image" accept="image/*">
-                        </div>
-                        
-                        <button type="submit" class="upload-btn">Upload Item</button>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-        <!-- Dashboard Page -->
-        <div id="dashboard" class="page">
-            <section class="dashboard-section">
-                <div class="container">
-                    <h2>Your Dashboard</h2>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <h3>Items Listed</h3>
-                            <span class="stat-number">12</span>
-                        </div>
-                        <div class="stat-card">
-                            <h3>Successful Swaps</h3>
-                            <span class="stat-number">8</span>
-                        </div>
-                        <div class="stat-card">
-                            <h3>Eco Points</h3>
-                            <span class="stat-number">245</span>
-                        </div>
-                        <div class="stat-card">
-                            <h3>CO2 Saved</h3>
-                            <span class="stat-number">15kg</span>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-content">
-                        <div class="recent-items">
-                            <h3>Your Recent Items</h3>
-                            <div class="items-list">
-                                <!-- Recent items will be populated by JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <div class="recent-swaps">
-                            <h3>Recent Swap Requests</h3>
-                            <div class="swaps-list">
-                                <!-- Recent swaps will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Badges Page -->
-        <div id="badges" class="page">
-            <section class="badges-section">
-                <div class="container">
-                    <h2>Your Eco Badges</h2>
-                    <p>Earn badges by making sustainable choices and helping the environment!</p>
-                    
-                    <div class="badges-grid">
-                        <div class="badge-card earned">
-                            <div class="badge-icon">🌱</div>
-                            <h3>First Swap</h3>
-                            <p>Completed your first item swap</p>
-                        </div>
-                        
-                        <div class="badge-card earned">
-                            <div class="badge-icon">♻️</div>
-                            <h3>Eco Warrior</h3>
-                            <p>Swapped 5 items this month</p>
-                        </div>
-                        
-                        <div class="badge-card">
-                            <div class="badge-icon">🏆</div>
-                            <h3>Swap Master</h3>
-                            <p>Complete 20 successful swaps</p>
-                        </div>
-                        
-                        <div class="badge-card">
-                            <div class="badge-icon">🌍</div>
-                            <h3>Planet Saver</h3>
-                            <p>Save 50kg of CO2</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Customer Assistant Chat -->
-    <div class="chat-assistant" id="chat-assistant">
-        <div class="chat-toggle" id="chat-toggle">
-            <i class="fas fa-comments"></i>
-        </div>
-        
-        <div class="chat-window" id="chat-window">
-            <div class="chat-header">
-                <h4>🤖 Eco Assistant</h4>
-                <button class="chat-close" id="chat-close">&times;</button>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
-            
-            <div class="chat-messages" id="chat-messages">
-                <div class="message bot-message">
-                    <p>Hi! I'm your Eco Assistant. How can I help you with sustainable swapping today?</p>
-                </div>
-            </div>
-            
-            <div class="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Ask me anything about swapping...">
-                <button id="send-message"><i class="fas fa-paper-plane"></i></button>
-            </div>
+            <p class="loading-text">Loading Sustainable Fashion...</p>
         </div>
     </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-recycle"></i>
+                <span>♻️ ReWear</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#browse" class="nav-link">Browse</a></li>
+                <li><a href="#upload" class="nav-link">Upload</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">♻️ ReWear</span>
+                    <span class="title-line gradient-text">Sustainable Clothing Exchange</span>
+                </h1>
+                <p class="hero-subtitle">Upload • Swap • Redeem • Save the Planet 🌍</p>
+                <p class="hero-description">
+                    Transform your wardrobe while protecting the environment. Upload unused clothes, earn points, and discover pre-loved fashion treasures from our eco-conscious community.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="uploadBtn">
+                        <i class="fas fa-upload"></i>
+                        Upload Clothes
+                    </button>
+                    <button class="btn btn-secondary" id="browseBtn">
+                        <i class="fas fa-search"></i>
+                        Browse Items
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="card-3d">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Upload</span>
+                    </div>
+                    <div class="card-3d">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Swap</span>
+                    </div>
+                    <div class="card-3d">
+                        <i class="fas fa-leaf"></i>
+                        <span>Sustainable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-target="1250">0</span>
+                <span class="stat-label">Items Swapped</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="850">0</span>
+                <span class="stat-label">Active Users</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="2500">0</span>
+                <span class="stat-label">CO₂ Saved (kg)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About ReWear</h2>
+                <p class="section-subtitle">Revolutionizing fashion with sustainable clothing exchange</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload & List</h3>
+                    <p>Upload clothing items with detailed photos, categories, sizes, and condition descriptions. Make your unused wardrobe available to the community.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Points System</h3>
+                    <p>Earn points by uploading quality items and redeem them for clothes you love. Our gamified system makes sustainable fashion rewarding.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Smart Filtering</h3>
+                    <p>Find exactly what you need with advanced filters by category, size, tags, condition, and availability. Discover your perfect match easily.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco Impact</h3>
+                    <p>Track your environmental contribution with eco-badges and impact metrics. Every swap reduces textile waste and carbon footprint.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse Section -->
+    <section class="browse" id="browse">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse Clothing</h2>
+                <p class="section-subtitle">Discover amazing pre-loved fashion from our community</p>
+            </div>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="tops">Tops</option>
+                        <option value="bottoms">Bottoms</option>
+                        <option value="dresses">Dresses</option>
+                        <option value="outerwear">Outerwear</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sizeFilter">Size:</label>
+                    <select id="sizeFilter" class="filter-select">
+                        <option value="">All Sizes</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="conditionFilter">Condition:</label>
+                    <select id="conditionFilter" class="filter-select">
+                        <option value="">All Conditions</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                    </select>
+                </div>
+            </div>
+            <div class="clothing-grid">
+                <div class="clothing-item glass-card" data-category="tops" data-size="M" data-condition="excellent">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=400&fit=crop" alt="Vintage Denim Jacket" loading="lazy">
+                        <div class="item-badge">50 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Vintage Denim Jacket</h3>
+                        <p class="item-details">Size: M • Excellent condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Vintage</span>
+                            <span class="tag">Casual</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+                <div class="clothing-item glass-card" data-category="dresses" data-size="S" data-condition="good">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&h=400&fit=crop" alt="Floral Summer Dress" loading="lazy">
+                        <div class="item-badge">35 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Floral Summer Dress</h3>
+                        <p class="item-details">Size: S • Good condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Floral</span>
+                            <span class="tag">Summer</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+                <div class="clothing-item glass-card" data-category="tops" data-size="L" data-condition="excellent">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=300&h=400&fit=crop" alt="Black Cotton T-Shirt" loading="lazy">
+                        <div class="item-badge">25 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Black Cotton T-Shirt</h3>
+                        <p class="item-details">Size: L • Excellent condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Basic</span>
+                            <span class="tag">Cotton</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+                <div class="clothing-item glass-card" data-category="bottoms" data-size="M" data-condition="good">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=400&fit=crop" alt="High-Waist Jeans" loading="lazy">
+                        <div class="item-badge">40 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>High-Waist Jeans</h3>
+                        <p class="item-details">Size: M • Good condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Denim</span>
+                            <span class="tag">High-waist</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+                <div class="clothing-item glass-card" data-category="outerwear" data-size="L" data-condition="excellent">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=400&fit=crop" alt="Wool Coat" loading="lazy">
+                        <div class="item-badge">80 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Wool Coat</h3>
+                        <p class="item-details">Size: L • Excellent condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Wool</span>
+                            <span class="tag">Winter</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+                <div class="clothing-item glass-card" data-category="accessories" data-size="One Size" data-condition="excellent">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=400&fit=crop" alt="Leather Handbag" loading="lazy">
+                        <div class="item-badge">60 Points</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Leather Handbag</h3>
+                        <p class="item-details">One Size • Excellent condition</p>
+                        <div class="item-tags">
+                            <span class="tag">Leather</span>
+                            <span class="tag">Designer</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Request Swap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload" id="upload">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upload Your Clothes</h2>
+                <p class="section-subtitle">Share your unused clothing and earn points</p>
+            </div>
+            <div class="upload-form-container">
+                <form class="upload-form glass-card" id="uploadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name *</label>
+                            <input type="text" id="itemName" name="itemName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category *</label>
+                            <select id="itemCategory" name="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="tops">Tops</option>
+                                <option value="bottoms">Bottoms</option>
+                                <option value="dresses">Dresses</option>
+                                <option value="outerwear">Outerwear</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemSize">Size *</label>
+                            <select id="itemSize" name="itemSize" required>
+                                <option value="">Select Size</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="One Size">One Size</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCondition">Condition *</label>
+                            <select id="itemCondition" name="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" name="itemDescription" rows="4" placeholder="Describe your item..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemTags">Tags (comma-separated)</label>
+                        <input type="text" id="itemTags" name="itemTags" placeholder="vintage, casual, summer...">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemImage">Upload Image</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop an image or click to browse</p>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                        Upload Item
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Dashboard</h2>
+                <p class="section-subtitle">Track your swaps, points, and eco-impact</p>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Points Balance</h3>
+                        <p class="stat-value">245</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Items Uploaded</h3>
+                        <p class="stat-value">12</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Successful Swaps</h3>
+                        <p class="stat-value">8</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>CO₂ Saved</h3>
+                        <p class="stat-value">15.6kg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <div class="eco-badges">
+                    <h3>Your Eco Badges</h3>
+                    <div class="badges-grid">
+                        <div class="badge earned">
+                            <i class="fas fa-seedling"></i>
+                            <span>Green Starter</span>
+                        </div>
+                        <div class="badge earned">
+                            <i class="fas fa-recycle"></i>
+                            <span>Eco Warrior</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-award"></i>
+                            <span>Swap Master</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Planet Saver</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <div class="activity-content">
+                                <p><strong>Swapped:</strong> Vintage Denim Jacket</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-upload"></i>
+                            <div class="activity-content">
+                                <p><strong>Uploaded:</strong> Summer Floral Dress</p>
+                                <span class="activity-time">5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-coins"></i>
+                            <div class="activity-content">
+                                <p><strong>Earned:</strong> 50 points from upload</p>
+                                <span class="activity-time">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact ReWear</h2>
+                <p class="section-subtitle">Questions about sustainable fashion? We're here to help!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>hello@rewear.eco</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Tech Hub, Innovation District</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>🌱 SustainableSwap</h4>
-                    <p>Building a sustainable future through the power of sharing and swapping.</p>
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>Techspire4</span>
+                    </div>
+                    <p>Empowering innovation through collaborative technology development and cutting-edge solutions.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                
                 <div class="footer-section">
-                    <h5>Platform</h5>
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Browse Items</a></li>
-                        <li><a href="#upload">Upload Items</a></li>
-                        <li><a href="#dashboard">Dashboard</a></li>
-                        <li><a href="#badges">Badges</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
-                    <h5>Community</h5>
+                    <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Impact Report</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Odoo Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Developer Guide</a></li>
+                        <li><a href="#">Community Forum</a></li>
                     </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with our latest hackathon announcements.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2024 SustainableSwap. All rights reserved.</p>
+                <p>&copy; 2025 Techspire4. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="particles.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

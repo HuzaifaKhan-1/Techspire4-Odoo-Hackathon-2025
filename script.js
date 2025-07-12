@@ -47,65 +47,12 @@ function initializeElements() {
     navMenu = document.getElementById('navMenu');
 }
 
-// Loading Screen Animation
-function initializeLoadingScreen() {
-    if (loadingScreen) {
-        // Wait for all images to load, then hide loading screen
-        const images = document.querySelectorAll('.clothes-item-bg');
-        let loadedImages = 0;
-        let totalImages = images.length;
-        
-        if (totalImages === 0) {
-            // No images to load, hide immediately
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-            }, 1000);
-            return;
-        }
-        
-        // Function to hide loading screen
-        function hideLoadingScreen() {
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-            }, 500);
-        }
-        
-        // Check if image is loaded
-        function checkImageLoaded() {
-            loadedImages++;
-            if (loadedImages >= totalImages || loadedImages >= 8) { // Hide after 8 images load or all load
-                hideLoadingScreen();
-            }
-        }
-        
-        // Add load listeners to carousel images
-        images.forEach((item, index) => {
-            const bgImage = window.getComputedStyle(item).backgroundImage;
-            if (bgImage && bgImage !== 'none') {
-                const imageUrl = bgImage.slice(4, -1).replace(/["']/g, "");
-                const img = new Image();
-                img.onload = checkImageLoaded;
-                img.onerror = checkImageLoaded; // Continue even if some images fail
-                img.src = imageUrl;
-            } else {
-                checkImageLoaded();
-            }
-        });
-        
-        // Fallback timeout
-        setTimeout(() => {
-            if (!loadingScreen.classList.contains('hidden')) {
-                hideLoadingScreen();
-            }
-        }, 3000);
-    }
-}
 
 // Navigation functionality
 function initializeNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     // Mobile menu toggle
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
@@ -113,39 +60,44 @@ function initializeNavigation() {
             navToggle.classList.toggle('active');
         });
     }
-    
-    // Update active link based on current page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    // Smooth scrolling for navigation links
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+
+            // Close mobile menu
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+            if (navToggle) {
+                navToggle.classList.remove('active');
+            }
+
+            // Update active link
+            navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        });
     });
 }
 
-// Theme toggle functionality
 function initializeTheme() {
     const themeToggle = document.getElementById('themeToggle');
-    
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    currentTheme = savedTheme;
-    document.body.setAttribute('data-theme', currentTheme);
-    
+
     if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (icon) {
-            icon.className = currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        }
-        
         themeToggle.addEventListener('click', () => {
             currentTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.body.setAttribute('data-theme', currentTheme);
-            localStorage.setItem('theme', currentTheme);
-            
+
             const icon = themeToggle.querySelector('i');
             if (icon) {
                 icon.className = currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
@@ -153,6 +105,24 @@ function initializeTheme() {
         });
     }
 }
+
+function initializeElements() {
+    navbar = document.getElementById('navbar');
+    loadingScreen = document.getElementById('loadingScreen');
+    navMenu = document.getElementById('navMenu');
+}
+
+// Loading Screen Animation
+function initializeLoadingScreen() {
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 2000);
+    }
+}
+
+
+
 
 // Scroll effects
 function initializeScrollEffects() {

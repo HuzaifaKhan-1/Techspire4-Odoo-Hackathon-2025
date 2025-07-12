@@ -874,7 +874,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 20px;
-  top: 50%;
+  top: 15%;
   left: 0;
   transform: translateY(-50%);
   animation: scrollRight 45s linear infinite;

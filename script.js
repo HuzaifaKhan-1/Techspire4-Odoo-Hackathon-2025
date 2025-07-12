@@ -312,6 +312,15 @@ function renderItems(items, container) {
         </div>
     </div>
 `).join('');
+function toggleLike(button) {
+    button.classList.toggle("liked");
+}
+
+function shareItem(itemTitle) {
+    navigator.clipboard.writeText(window.location.href);
+    showNotification(`Link for "${itemTitle}" copied to clipboard`, 'info');
+}
+
 
 
 }

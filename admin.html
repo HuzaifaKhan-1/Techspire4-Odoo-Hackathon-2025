@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ReWear</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="navbar scrolled admin-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <span>♻️ ReWear Admin</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="admin.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="#" class="nav-link">Items</a></li>
+                <li><a href="#" class="nav-link">Users</a></li>
+                <li><a href="#" class="nav-link">Reports</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="admin-menu">
+                    <div class="admin-avatar">
+                        <img src="https://pixabay.com/get/g72979bb66c01afe73332ed2d4c8b1dc54d75dac6a7a5dedf87a31ff01c6190a6625288e2eaeea52b530216150dc8202562930ee04fb73e1c8bac4a849c9e7613_1280.jpg" alt="Admin Avatar">
+                    </div>
+                    <div class="admin-dropdown">
+                        <button class="dropdown-item">Admin Settings</button>
+                        <button class="dropdown-item" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-section">
+        <div class="container">
+            <!-- Admin Header -->
+            <div class="admin-header">
+                <div class="admin-welcome">
+                    <h1>Admin Dashboard</h1>
+                    <p>Manage the ReWear platform and moderate content</p>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i>
+                        Export Data
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Add Announcement
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Stats -->
+            <div class="admin-stats">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1,247</h3>
+                        <p>Total Users</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+12% this month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>3,892</h3>
+                        <p>Total Items</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+185 this week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>856</h3>
+                        <p>Total Swaps</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+23 this week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>47</h3>
+                        <p>Pending Reviews</p>
+                    </div>
+                    <div class="stat-trend warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Needs attention</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Main Content -->
+            <div class="admin-main">
+                <!-- Pending Items for Review -->
+                <div class="admin-card glass-card">
+                    <div class="card-header">
+                        <h2>Items Pending Review</h2>
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-filter="all">All (47)</button>
+                            <button class="tab-btn" data-filter="flagged">Flagged (3)</button>
+                            <button class="tab-btn" data-filter="new">New (44)</button>
+                        </div>
+                    </div>
+                    <div class="pending-items-list">
+                        <div class="pending-item">
+                            <div class="item-thumbnail">
+                                <img src="https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg" alt="Pending Item">
+                                <div class="item-status new">NEW</div>
+                            </div>
+                            <div class="item-details">
+                                <h4>Vintage Floral Summer Dress</h4>
+                                <p>Listed by: Sarah Chen • 2 hours ago</p>
+                                <div class="item-meta">
+                                    <span>Dresses • Size M • 50 pts</span>
+                                </div>
+                                <div class="item-description">
+                                    "Beautiful vintage dress in excellent condition. Perfect for summer events..."
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="approveItem()">
+                                    <i class="fas fa-check"></i>
+                                    Approve
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="rejectItem()">
+                                    <i class="fas fa-times"></i>
+                                    Reject
+                                </button>
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-eye"></i>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pending-item">
+                            <div class="item-thumbnail">
+                                <img src="https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg" alt="Pending Item">
+                                <div class="item-status flagged">FLAGGED</div>
+                            </div>
+                            <div class="item-details">
+                                <h4>Designer Handbag</h4>
+                                <p>Listed by: Emma K. • 4 hours ago</p>
+                                <div class="item-meta">
+                                    <span>Accessories • One Size • 120 pts</span>
+                                </div>
+                                <div class="item-description">
+                                    "Authentic designer bag with minor wear on corners..."
+                                </div>
+                                <div class="flag-reason">
+                                    <i class="fas fa-flag"></i>
+                                    Flagged: Suspicious authenticity claim
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="approveItem()">
+                                    <i class="fas fa-check"></i>
+                                    Approve
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="rejectItem()">
+                                    <i class="fas fa-times"></i>
+                                    Reject
+                                </button>
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="fas fa-flag"></i>
+                                    Review Flag
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pending-item">
+                            <div class="item-thumbnail">
+                                <img src="https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg" alt="Pending Item">
+                                <div class="item-status new">NEW</div>
+                            </div>
+                            <div class="item-details">
+                                <h4>Professional Blazer</h4>
+                                <p>Listed by: Alex M. • 6 hours ago</p>
+                                <div class="item-meta">
+                                    <span>Outerwear • Size L • 65 pts</span>
+                                </div>
+                                <div class="item-description">
+                                    "Navy blue blazer in good condition. Small stain on left sleeve but hardly noticeable..."
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="approveItem()">
+                                    <i class="fas fa-check"></i>
+                                    Approve
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="rejectItem()">
+                                    <i class="fas fa-times"></i>
+                                    Reject
+                                </button>
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-eye"></i>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent User Activity -->
+                <div class="admin-card glass-card">
+                    <div class="card-header">
+                        <h2>Recent User Activity</h2>
+                        <button class="btn btn-outline btn-sm">View All</button>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <img src="https://pixabay.com/get/g4c573ecf613df4b61c8312bd8e57d2c40e17d51a7ba1426c1a87fa17137f754a486359f6853bc4009f49b8ad70a1ccf0838d47e817b54f83fc4fd3cab82e9ac0_1280.jpg" alt="User" class="activity-avatar">
+                            <div class="activity-content">
+                                <p><strong>Sarah Chen</strong> listed a new item</p>
+                                <span class="activity-time">2 minutes ago</span>
+                            </div>
+                            <div class="activity-type new">NEW ITEM</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <img src="https://pixabay.com/get/ga4974486240b2e87a9f749a5753b09fb48691cc7182ba075b0ba9eecdae0d489e461356d00ff54e1ca6d098a5da02db18b9b4b268242e658cfc59b1a7aa34ce2_1280.jpg" alt="User" class="activity-avatar">
+                            <div class="activity-content">
+                                <p><strong>Emma K.</strong> completed a swap</p>
+                                <span class="activity-time">15 minutes ago</span>
+                            </div>
+                            <div class="activity-type swap">SWAP</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <img src="https://pixabay.com/get/gd7e0c4ae6b4e0a436842982187056cf112d5ae49f03811c4cd581d1317025687e6a3a4468fdcdaec1a11ea2008efdd1412466bd5609852d209cf377af0d9c986_1280.jpg" alt="User" class="activity-avatar">
+                            <div class="activity-content">
+                                <p><strong>Alex M.</strong> joined ReWear</p>
+                                <span class="activity-time">1 hour ago</span>
+                            </div>
+                            <div class="activity-type user">NEW USER</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <img src="https://pixabay.com/get/g5fc6c0d8733e4bdc20b19080b8fc4c24b7b39e4d3eb014190dab1d7cddc3b25913de851f7314bb1cb63706563f0e1b7cf38c2ac282e1c1eb31b95672547c7bf6_1280.jpg" alt="User" class="activity-avatar">
+                            <div class="activity-content">
+                                <p><strong>Maya P.</strong> flagged an item for review</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                            <div class="activity-type flag">FLAG</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Analytics -->
+                <div class="admin-card glass-card">
+                    <div class="card-header">
+                        <h2>Platform Analytics</h2>
+                        <div class="time-range">
+                            <select>
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 3 months</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="analytics-metric">
+                            <h4>Daily Active Users</h4>
+                            <div class="metric-value">347</div>
+                            <div class="metric-change positive">+8.2%</div>
+                        </div>
+                        <div class="analytics-metric">
+                            <h4>Items Listed Today</h4>
+                            <div class="metric-value">23</div>
+                            <div class="metric-change positive">+15.4%</div>
+                        </div>
+                        <div class="analytics-metric">
+                            <h4>Successful Swaps</h4>
+                            <div class="metric-value">12</div>
+                            <div class="metric-change negative">-2.1%</div>
+                        </div>
+                        <div class="analytics-metric">
+                            <h4>User Satisfaction</h4>
+                            <div class="metric-value">4.8/5</div>
+                            <div class="metric-change positive">+0.1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Reports -->
+                <div class="admin-card glass-card">
+                    <div class="card-header">
+                        <h2>Recent Reports</h2>
+                        <span class="notification-badge">2</span>
+                    </div>
+                    <div class="reports-list">
+                        <div class="report-item urgent">
+                            <div class="report-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Inappropriate Content Report</h4>
+                                <p>User reported item contains inappropriate images</p>
+                                <span class="report-time">30 minutes ago</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn btn-danger btn-sm">Review</button>
+                                <button class="btn btn-outline btn-sm">Dismiss</button>
+                            </div>
+                        </div>
+
+                        <div class="report-item">
+                            <div class="report-icon">
+                                <i class="fas fa-user-times"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>User Behavior Report</h4>
+                                <p>Multiple users reported aggressive messaging</p>
+                                <span class="report-time">2 hours ago</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn btn-warning btn-sm">Investigate</button>
+                                <button class="btn btn-outline btn-sm">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

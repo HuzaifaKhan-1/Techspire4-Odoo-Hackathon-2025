@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - ReWear</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <span>♻️ ReWear</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="browse.html" class="nav-link active">Browse</a></li>
+                <li><a href="add-item.html" class="nav-link">List Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <button class="btn btn-outline btn-sm" onclick="window.location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.location.href='register.html'">Sign Up</button>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Browse Section -->
+    <section class="browse-section">
+        <div class="container">
+            <!-- Search Header -->
+            <div class="browse-header">
+                <h1>Discover Fashion Treasures</h1>
+                <p>Browse through our community's carefully curated clothing collection</p>
+                
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search for items, brands, styles...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Section -->
+            <div class="filters-section glass-card">
+                <div class="filters-header">
+                    <h3>Filter Items</h3>
+                    <button class="btn btn-outline btn-sm" id="resetFilters">Reset All</button>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="category-tabs">
+                    <button class="gender-tab active" data-gender="all">All Items</button>
+                    <button class="gender-tab" data-gender="women">Women</button>
+                    <button class="gender-tab" data-gender="men">Men</button>
+                    <button class="gender-tab" data-gender="unisex">Unisex</button>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label>Category</label>
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="tops">Tops</option>
+                            <option value="dresses">Dresses</option>
+                            <option value="pants">Pants</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="outerwear">Outerwear</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Size</label>
+                        <select class="filter-select" id="sizeFilter">
+                            <option value="">All Sizes</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Condition</label>
+                        <select class="filter-select" id="conditionFilter">
+                            <option value="">All Conditions</option>
+                            <option value="new">New with tags</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Color</label>
+                        <select class="filter-select" id="colorFilter">
+                            <option value="">All Colors</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="blue">Blue</option>
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="pink">Pink</option>
+                            <option value="gray">Gray</option>
+                            <option value="brown">Brown</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group points-range">
+                        <label>Points Range</label>
+                        <div class="range-inputs">
+                            <input type="number" class="price-input" id="minPoints" placeholder="Min" min="0">
+                            <span>to</span>
+                            <input type="number" class="price-input" id="maxPoints" placeholder="Max" min="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-summary">
+                <p>Showing <span id="resultsCount">0</span> items</p>
+                <div class="sort-options">
+                    <label>Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="newest">Newest First</option>
+                        <option value="points-low">Points: Low to High</option>
+                        <option value="points-high">Points: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Items Grid -->
+            <div class="items-grid" id="itemsGrid">
+                <!-- Items will be populated by JavaScript -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="btn btn-outline" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Items
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

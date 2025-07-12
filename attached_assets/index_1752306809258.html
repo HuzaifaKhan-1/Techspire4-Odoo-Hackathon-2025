@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReWear - Sustainable Clothing Exchange Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="ReWear - Sustainable Clothing Exchange Platform by Team Techspire4">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="logo-animation">
+                <div class="logo-particles"></div>
+                <h1 class="loading-title">♻️ ReWear</h1>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Loading Sustainable Fashion...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>♻️ ReWear</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#browse" class="nav-link">Browse</a></li>
+                <li><a href="#upload" class="nav-link">Upload</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Curved Clothes Carousel Top -->
+        <div class="clothes-carousel-top">
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=100&h=100&fit=crop')"></div>
+        </div>
+        
+        <!-- Curved Clothes Carousel Bottom -->
+        <div class="clothes-carousel-bottom">
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=100&h=100&fit=crop')"></div>
+        </div>
+        <div class="hero-content">
+        <!-- Left Side -->
+        <div class="hero-text">
+            <h1 class="hero-title">
+            <div class="title-and-badge">
+                <span class="title-main">ReWear</span>
+                <div class="hero-badge">
+                <i class="fas fa-recycle"></i>
+                <span>Sustainable Fashion Platform</span>
+                </div>
+            </div>
+            <span class="title-sub">
+  Your 
+  <span style="
+    background: linear-gradient(135deg, #f97316, #ec4899); /* orange to pink */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-shadow: 1px 1px 8px rgba(249, 115, 22, 0.3); /* orange glow */
+  ">Clothes</span>, 
+  New 
+  <span style="
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-shadow: 1px 1px 8px rgba(34, 197, 94, 0.3);
+  ">Stories</span>
+</span>
+
+
+
+            </h1>
+            <p class="hero-description">
+            Transform your wardrobe sustainably. Upload unused clothes, earn points, and discover pre-loved fashion treasures from our eco-conscious community.
+            </p>
+
+            <!-- Flow: Upload -> Swap -> Earn -> Save Planet -->
+            <div class="hero-features">
+            <div class="feature-item" data-flow="upload">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>Upload</span>
+            </div>
+            <div class="feature-divider">→</div>
+            <div class="feature-item" data-flow="swap">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Swap</span>
+            </div>
+            <div class="feature-divider">→</div>
+            <div class="feature-item" data-flow="earn">
+            <i class="fas fa-coins"></i>
+            <span>Earn</span>
+            </div>
+            <div class="feature-divider">→</div>
+            <div class="feature-item" data-flow="planet">
+            <i class="fas fa-seedling"></i>
+            <span>Save Planet</span>
+            </div>
+        </div>
+        
+            <!-- Moved buttons BELOW the flow -->
+            <div class="hero-buttons">
+            <button class="btn btn-primary" id="uploadBtn">
+                <i class="fas fa-plus"></i>
+                Start Uploading
+            </button>
+            <button class="btn btn-secondary" id="browseBtn">
+                <i class="fas fa-search"></i>
+                Explore Collection
+            </button>
+            </div>
+        </div>
+
+        <!-- Right Side: Fashion Cards -->
+        <div class="hero-visual">
+            <div class="fashion-showcase">
+            <div class="showcase-item">
+                <div class="showcase-icon">
+                <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Casual Wear</h3>
+                <p>Everyday comfort pieces</p>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-icon">
+                <i class="fas fa-gem"></i>
+                </div>
+                <h3>Accessories</h3>
+                <p>Perfect finishing touches</p>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-icon">
+                <i class="fas fa-shoe-prints"></i>
+                </div>
+                <h3>Footwear</h3>
+                <p>Step into style</p>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- Horizontal Scrolling Clothes Gallery -->
+        <div class="clothes-gallery">
+            <h3 class="gallery-title">Trending Fashion Styles</h3>
+            <div class="gallery-container">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=400&fit=crop" alt="Elegant Dress">
+                        <div class="gallery-overlay">
+                            <span>Elegant Dresses</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop" alt="Casual Wear">
+                        <div class="gallery-overlay">
+                            <span>Casual Comfort</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=400&fit=crop" alt="Business Attire">
+                        <div class="gallery-overlay">
+                            <span>Business Style</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=400&fit=crop" alt="Summer Fashion">
+                        <div class="gallery-overlay">
+                            <span>Summer Vibes</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&h=400&fit=crop" alt="Winter Collection">
+                        <div class="gallery-overlay">
+                            <span>Winter Collection</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=300&h=400&fit=crop" alt="Vintage Style">
+                        <div class="gallery-overlay">
+                            <span>Vintage Treasures</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=300&h=400&fit=crop" alt="Street Fashion">
+                        <div class="gallery-overlay">
+                            <span>Street Fashion</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&h=400&fit=crop" alt="Formal Wear">
+                        <div class="gallery-overlay">
+                            <span>Formal Elegance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-target="1250">0</span>
+                <span class="stat-label">Items Swapped</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="850">0</span>
+                <span class="stat-label">Active Users</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="2500">0</span>
+                <span class="stat-label">CO₂ Saved (kg)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About ReWear</h2>
+                <p class="section-subtitle">Revolutionizing fashion with sustainable clothing exchange</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload & List</h3>
+                    <p>Upload clothing items with detailed photos, categories, sizes, and condition descriptions. Make your unused wardrobe available to the community.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Points System</h3>
+                    <p>Earn points by uploading quality items and redeem them for clothes you love. Our gamified system makes sustainable fashion rewarding.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Smart Filtering</h3>
+                    <p>Find exactly what you need with advanced filters by category, size, tags, condition, and availability. Discover your perfect match easily.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco Impact</h3>
+                    <p>Track your environmental contribution with eco-badges and impact metrics. Every swap reduces textile waste and carbon footprint.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gender Selection and Browse Section -->
+    <section class="gender-section" id="browse">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse Collection</h2>
+                <p class="section-subtitle">Discover amazing pre-loved fashion from our community</p>
+            </div>
+            
+            <!-- Gender Tabs -->
+            <div class="gender-tabs">
+                <div class="gender-tab active" data-gender="all">
+                    <i class="fas fa-users"></i>
+                    All Collections
+                </div>
+                <div class="gender-tab" data-gender="men">
+                    <i class="fas fa-male"></i>
+                    Men's Fashion
+                </div>
+                <div class="gender-tab" data-gender="women">
+                    <i class="fas fa-female"></i>
+                    Women's Fashion
+                </div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="advanced-filters">
+                <div class="filter-header">
+                    <h3 class="filter-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Advanced Filters
+                    </h3>
+                    <button class="filter-reset" id="resetFilters">
+                        <i class="fas fa-undo"></i>
+                        Reset All
+                    </button>
+                </div>
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-tags"></i>
+                            Category
+                        </label>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="tops">Tops & T-Shirts</option>
+                            <option value="bottoms">Bottoms & Jeans</option>
+                            <option value="dresses">Dresses & Skirts</option>
+                            <option value="outerwear">Jackets & Coats</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="footwear">Shoes & Footwear</option>
+                            <option value="formal">Formal Wear</option>
+                            <option value="ethnic">Ethnic Wear</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-ruler"></i>
+                            Size
+                        </label>
+                        <select id="sizeFilter" class="filter-select">
+                            <option value="">All Sizes</option>
+                            <option value="XS">Extra Small (XS)</option>
+                            <option value="S">Small (S)</option>
+                            <option value="M">Medium (M)</option>
+                            <option value="L">Large (L)</option>
+                            <option value="XL">Extra Large (XL)</option>
+                            <option value="XXL">XXL</option>
+                            <option value="One Size">One Size</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-star"></i>
+                            Condition
+                        </label>
+                        <select id="conditionFilter" class="filter-select">
+                            <option value="">All Conditions</option>
+                            <option value="excellent">Like New (Excellent)</option>
+                            <option value="good">Very Good</option>
+                            <option value="fair">Good Condition</option>
+                            <option value="used">Well Worn</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-coins"></i>
+                            Points Range
+                        </label>
+                        <div class="price-range">
+                            <input type="number" class="price-input" placeholder="Min" id="minPoints" min="0" max="200">
+                            <span>-</span>
+                            <input type="number" class="price-input" placeholder="Max" id="maxPoints" min="0" max="200">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-palette"></i>
+                            Color
+                        </label>
+                        <select id="colorFilter" class="filter-select">
+                            <option value="">All Colors</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="blue">Blue</option>
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="pink">Pink</option>
+                            <option value="purple">Purple</option>
+                            <option value="multicolor">Multicolor</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location
+                        </label>
+                        <select id="locationFilter" class="filter-select">
+                            <option value="">All Locations</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="kolkata">Kolkata</option>
+                            <option value="pune">Pune</option>
+                            <option value="hyderabad">Hyderabad</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Browse Header with Results Count and Sort -->
+            <div class="browse-header">
+                <div class="results-count">
+                    <span id="resultsCount">156</span> items found
+                </div>
+                <div class="sort-controls">
+                    <span class="sort-label">Sort by:</span>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="points-low">Points: Low to High</option>
+                        <option value="points-high">Points: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Clothing Grid -->
+            <div class="clothing-grid" id="clothingGrid">
+                <!-- Men's Items -->
+                <div class="clothing-item glass-card" data-category="tops" data-size="M" data-condition="excellent" data-gender="men" data-color="blue" data-points="45">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=400&fit=crop" alt="Men's Denim Jacket" loading="lazy">
+                        <div class="item-badge">45 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Classic Denim Jacket</h3>
+                        <div class="item-details">
+                            <span>Size: M • Excellent</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Vintage</span>
+                            <span class="tag">Casual</span>
+                            <span class="tag">Men</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Women's Items -->
+                <div class="clothing-item glass-card" data-category="dresses" data-size="S" data-condition="good" data-gender="women" data-color="pink" data-points="35">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&h=400&fit=crop" alt="Floral Summer Dress" loading="lazy">
+                        <div class="item-badge">35 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Floral Summer Dress</h3>
+                        <div class="item-details">
+                            <span>Size: S • Good</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.5</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Floral</span>
+                            <span class="tag">Summer</span>
+                            <span class="tag">Women</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Items -->
+                <div class="clothing-item glass-card" data-category="tops" data-size="L" data-condition="excellent" data-gender="men" data-color="black" data-points="25">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=300&h=400&fit=crop" alt="Black Cotton T-Shirt" loading="lazy">
+                        <div class="item-badge">25 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Premium Cotton T-Shirt</h3>
+                        <div class="item-details">
+                            <span>Size: L • Excellent</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Basic</span>
+                            <span class="tag">Cotton</span>
+                            <span class="tag">Men</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clothing-item glass-card" data-category="bottoms" data-size="M" data-condition="good" data-gender="women" data-color="blue" data-points="40">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=400&fit=crop" alt="High-Waist Jeans" loading="lazy">
+                        <div class="item-badge">40 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>High-Waist Jeans</h3>
+                        <div class="item-details">
+                            <span>Size: M • Good</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Denim</span>
+                            <span class="tag">High-waist</span>
+                            <span class="tag">Women</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clothing-item glass-card" data-category="outerwear" data-size="L" data-condition="excellent" data-gender="women" data-color="black" data-points="80">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=400&fit=crop" alt="Wool Coat" loading="lazy">
+                        <div class="item-badge">80 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Designer Wool Coat</h3>
+                        <div class="item-details">
+                            <span>Size: L • Excellent</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Wool</span>
+                            <span class="tag">Winter</span>
+                            <span class="tag">Designer</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clothing-item glass-card" data-category="accessories" data-size="One Size" data-condition="excellent" data-gender="women" data-color="brown" data-points="60">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=400&fit=crop" alt="Leather Handbag" loading="lazy">
+                        <div class="item-badge">60 Points</div>
+                        <div class="item-wishlist">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Leather Handbag</h3>
+                        <div class="item-details">
+                            <span>One Size • Excellent</span>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">Leather</span>
+                            <span class="tag">Designer</span>
+                            <span class="tag">Handbag</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-exchange-alt"></i>
+                                Request Swap
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload" id="upload">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upload Your Clothes</h2>
+                <p class="section-subtitle">Share your unused clothing and earn points</p>
+            </div>
+            <div class="upload-form-container">
+                <form class="upload-form glass-card" id="uploadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name *</label>
+                            <input type="text" id="itemName" name="itemName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category *</label>
+                            <select id="itemCategory" name="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="tops">Tops & T-Shirts</option>
+                                <option value="bottoms">Bottoms & Jeans</option>
+                                <option value="dresses">Dresses & Skirts</option>
+                                <option value="outerwear">Jackets & Coats</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="footwear">Shoes & Footwear</option>
+                                <option value="formal">Formal Wear</option>
+                                <option value="ethnic">Ethnic Wear</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemGender">Gender *</label>
+                            <select id="itemGender" name="itemGender" required>
+                                <option value="">Select Gender</option>
+                                <option value="men">Men</option>
+                                <option value="women">Women</option>
+                                <option value="unisex">Unisex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemSize">Size *</label>
+                            <select id="itemSize" name="itemSize" required>
+                                <option value="">Select Size</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">XXL</option>
+                                <option value="One Size">One Size</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCondition">Condition *</label>
+                            <select id="itemCondition" name="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Like New (Excellent)</option>
+                                <option value="good">Very Good</option>
+                                <option value="fair">Good Condition</option>
+                                <option value="used">Well Worn</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemColor">Color</label>
+                            <select id="itemColor" name="itemColor">
+                                <option value="">Select Color</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="pink">Pink</option>
+                                <option value="purple">Purple</option>
+                                <option value="multicolor">Multicolor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" name="itemDescription" rows="4" placeholder="Describe your item..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemTags">Tags (comma-separated)</label>
+                        <input type="text" id="itemTags" name="itemTags" placeholder="vintage, casual, summer...">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemImage">Upload Image</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop an image or click to browse</p>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                        Upload Item
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Dashboard</h2>
+                <p class="section-subtitle">Track your swaps, points, and eco-impact</p>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Points Balance</h3>
+                        <p class="stat-value">245</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Items Uploaded</h3>
+                        <p class="stat-value">12</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Successful Swaps</h3>
+                        <p class="stat-value">8</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>CO₂ Saved</h3>
+                        <p class="stat-value">15.6kg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <div class="eco-badges">
+                    <h3>Your Eco Badges</h3>
+                    <div class="badges-grid">
+                        <div class="badge earned">
+                            <i class="fas fa-seedling"></i>
+                            <span>Green Starter</span>
+                        </div>
+                        <div class="badge earned">
+                            <i class="fas fa-recycle"></i>
+                            <span>Eco Warrior</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-award"></i>
+                            <span>Swap Master</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Planet Saver</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <div class="activity-content">
+                                <p><strong>Swapped:</strong> Vintage Denim Jacket</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-upload"></i>
+                            <div class="activity-content">
+                                <p><strong>Uploaded:</strong> Summer Floral Dress</p>
+                                <span class="activity-time">5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-coins"></i>
+                            <div class="activity-content">
+                                <p><strong>Earned:</strong> 50 points from upload</p>
+                                <span class="activity-time">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact ReWear</h2>
+                <p class="section-subtitle">Questions about sustainable fashion? We're here to help!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>hello@rewear.eco</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Tech Hub, Innovation District</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>Techspire4</span>
+                    </div>
+                    <p>Empowering innovation through collaborative technology development and cutting-edge solutions.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#browse">Browse</a></li>
+                        <li><a href="#upload">Upload</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Odoo Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Developer Guide</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with our latest sustainable fashion news.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Techspire4. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="particles.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

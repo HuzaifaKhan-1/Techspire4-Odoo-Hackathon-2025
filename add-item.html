@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List New Item - ReWear</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <span>♻️ ReWear</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="add-item.html" class="nav-link active">List Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu-logged-in" id="userMenuLoggedIn">
+                    <div class="user-avatar">
+                        <img src="https://pixabay.com/get/g4c573ecf613df4b61c8312bd8e57d2c40e17d51a7ba1426c1a87fa17137f754a486359f6853bc4009f49b8ad70a1ccf0838d47e817b54f83fc4fd3cab82e9ac0_1280.jpg" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add Item Section -->
+    <section class="add-item-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="add-item-header">
+                <h1>List Your Fashion Item</h1>
+                <p>Share your preloved fashion pieces and earn points while helping others discover sustainable style</p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="add-item-container">
+                <form class="add-item-form glass-card" id="addItemForm">
+                    <!-- Progress Indicator -->
+                    <div class="progress-indicator">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span>Images</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span>Details</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span>Description</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Images -->
+                    <div class="form-step active" id="step1">
+                        <h2>Add Product Images</h2>
+                        <p>Upload high-quality photos to showcase your item. You can add up to 5 images.</p>
+
+                        <div class="image-upload-section">
+                            <div class="image-upload-area" id="fileUploadArea">
+                                <div class="upload-placeholder" id="uploadPlaceholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>Drop images here or click to browse</h3>
+                                    <p>PNG, JPG up to 10MB each</p>
+                                </div>
+                                <input type="file" id="itemImages" name="itemImages" multiple accept="image/*" style="display: none;">
+                            </div>
+
+                            <div class="uploaded-images" id="uploadedImages">
+                                <!-- Uploaded images will appear here -->
+                            </div>
+
+                            <div class="image-tips">
+                                <h4>Photo Tips for Better Results</h4>
+                                <ul>
+                                    <li>Use natural lighting or bright indoor lighting</li>
+                                    <li>Show the item flat or on a hanger</li>
+                                    <li>Include close-ups of any details or flaws</li>
+                                    <li>Take photos against a clean, neutral background</li>
+                                    <li>Show the item from multiple angles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Item Details -->
+                    <div class="form-step" id="step2">
+                        <h2>Item Details</h2>
+                        <p>Provide detailed information about your item to help buyers make informed decisions.</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="itemTitle">Item Title *</label>
+                                <input type="text" id="itemTitle" name="itemTitle" required placeholder="e.g., Vintage Floral Summer Dress">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="tops">Tops</option>
+                                    <option value="dresses">Dresses</option>
+                                    <option value="pants">Pants & Jeans</option>
+                                    <option value="skirts">Skirts</option>
+                                    <option value="outerwear">Outerwear</option>
+                                    <option value="shoes">Shoes</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="underwear">Underwear & Sleepwear</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="size">Size *</label>
+                                <select id="size" name="size" required>
+                                    <option value="">Select Size</option>
+                                    <option value="XXS">XXS</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                    <option value="XXXL">XXXL</option>
+                                    <option value="One Size">One Size</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="condition">Condition *</label>
+                                <select id="condition" name="condition" required>
+                                    <option value="">Select Condition</option>
+                                    <option value="new">New with tags</option>
+                                    <option value="excellent">Excellent</option>
+                                    <option value="good">Good</option>
+                                    <option value="fair">Fair</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="brand">Brand</label>
+                                <input type="text" id="brand" name="brand" placeholder="e.g., Zara, H&M, Vintage">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">Primary Color</label>
+                                <select id="color" name="color">
+                                    <option value="">Select Color</option>
+                                    <option value="black">Black</option>
+                                    <option value="white">White</option>
+                                    <option value="gray">Gray</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="red">Red</option>
+                                    <option value="green">Green</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="pink">Pink</option>
+                                    <option value="purple">Purple</option>
+                                    <option value="brown">Brown</option>
+                                    <option value="orange">Orange</option>
+                                    <option value="multicolor">Multi-color</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="material">Material</label>
+                                <input type="text" id="material" name="material" placeholder="e.g., 100% Cotton, Polyester blend">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="points">Points Value *</label>
+                                <input type="number" id="points" name="points" required min="10" max="200" placeholder="30">
+                                <small>Suggested: 10-50 for basic items, 50-100 for designer pieces</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Description -->
+                    <div class="form-step" id="step3">
+                        <h2>Description & Tags</h2>
+                        <p>Provide a detailed description and add relevant tags to help others find your item.</p>
+
+                        <div class="form-group">
+                            <label for="description">Description *</label>
+                            <textarea id="description" name="description" required placeholder="Describe the item in detail. Include any special features, styling tips, or care instructions. Be honest about any flaws or signs of wear."></textarea>
+                            <div class="character-count">
+                                <span id="charCount">0</span> / 500 characters
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tags">Tags</label>
+                            <input type="text" id="tags" name="tags" placeholder="Add tags separated by commas (e.g., vintage, summer, casual, floral)">
+                            <small>Add relevant keywords to help others discover your item</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="styleNotes">Style Notes (Optional)</label>
+                            <textarea id="styleNotes" name="styleNotes" placeholder="Share styling tips or occasions where this item would be perfect..."></textarea>
+                        </div>
+
+                        <!-- Shipping Options -->
+                        <div class="shipping-section">
+                            <h3>Exchange Options</h3>
+                            <div class="shipping-options">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="localPickup" name="exchangeOptions" value="pickup" checked>
+                                    <span class="checkmark"></span>
+                                    Local pickup available
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="shipping" name="exchangeOptions" value="shipping">
+                                    <span class="checkmark"></span>
+                                    Willing to ship (buyer pays shipping)
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="meetup" name="exchangeOptions" value="meetup">
+                                    <span class="checkmark"></span>
+                                    Meet in public location
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Terms -->
+                        <div class="terms-section">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="agreement" name="agreement" required>
+                                <span class="checkmark"></span>
+                                I confirm that this item belongs to me and I agree to the <a href="#">Community Guidelines</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-outline" id="prevBtn" onclick="changeStep(-1)" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                            <i class="fas fa-check"></i>
+                            List Item
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Preview Card -->
+                <div class="item-preview glass-card">
+                    <h3>Preview</h3>
+                    <div class="preview-card">
+                        <div class="preview-image">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>Add images to see preview</span>
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <h4 id="previewTitle">Item Title</h4>
+                            <p id="previewCategory">Category</p>
+                            <div class="preview-meta">
+                                <span class="preview-points" id="previewPoints">0 pts</span>
+                                <span class="preview-size" id="previewSize">Size</span>
+                            </div>
+                            <div class="preview-condition" id="previewCondition">Condition</div>
+                        </div>
+                    </div>
+                    
+                    <div class="listing-tips">
+                        <h4>Tips for Better Listings</h4>
+                        <ul>
+                            <li>Items with multiple photos get 3x more interest</li>
+                            <li>Detailed descriptions increase swap success by 65%</li>
+                            <li>Fair pricing leads to faster exchanges</li>
+                            <li>Honest condition ratings build trust</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

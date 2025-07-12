@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - ReWear</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <span>♻️ ReWear</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="add-item.html" class="nav-link">List Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <button class="btn btn-outline btn-sm" onclick="window.location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.location.href='register.html'">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Item Detail Section -->
+    <section class="item-detail-section">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="browse.html">Browse</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumbCategory">Dresses</span>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumbTitle">Item Details</span>
+            </nav>
+
+            <div class="item-detail-container">
+                <!-- Image Gallery -->
+                <div class="item-gallery">
+                    <div class="main-image">
+                        <img id="mainImage" src="https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg" alt="Main Item Image">
+                        <button class="image-nav prev" onclick="previousImage()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="image-nav next" onclick="nextImage()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="image-indicator">
+                            <span id="imageCounter">1 / 3</span>
+                        </div>
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg" alt="Thumbnail 1" class="thumbnail active" onclick="selectImage(0)">
+                        <img src="https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg" alt="Thumbnail 2" class="thumbnail" onclick="selectImage(1)">
+                        <img src="https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg" alt="Thumbnail 3" class="thumbnail" onclick="selectImage(2)">
+                    </div>
+                </div>
+
+                <!-- Item Information -->
+                <div class="item-info">
+                    <div class="item-header">
+                        <div class="item-status available">
+                            <i class="fas fa-circle"></i>
+                            <span>Available</span>
+                        </div>
+                        <button class="favorite-btn" onclick="toggleFavorite()">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <h1 id="itemTitle">Vintage Floral Summer Dress</h1>
+                    
+                    <div class="item-meta">
+                        <div class="points-display">
+                            <i class="fas fa-coins"></i>
+                            <span class="points" id="itemPoints">50</span>
+                            <span class="points-label">Points to redeem</span>
+                        </div>
+                        <div class="item-category">
+                            <i class="fas fa-tag"></i>
+                            <span id="itemCategory">Dresses</span>
+                        </div>
+                    </div>
+
+                    <!-- Item Details -->
+                    <div class="item-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Size:</span>
+                            <span class="detail-value" id="itemSize">M</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Condition:</span>
+                            <span class="detail-value condition excellent" id="itemCondition">Excellent</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Color:</span>
+                            <span class="detail-value" id="itemColor">Multi-color</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Brand:</span>
+                            <span class="detail-value" id="itemBrand">Vintage Collection</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Material:</span>
+                            <span class="detail-value" id="itemMaterial">100% Cotton</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="item-description">
+                        <h3>Description</h3>
+                        <p id="itemDescription">
+                            Beautiful vintage floral dress perfect for summer occasions. Features a comfortable fit and timeless design. 
+                            This piece has been well-maintained and is ready for its next adventure. The dress has a classic A-line 
+                            silhouette that flatters most body types and the floral pattern adds a touch of elegance to any wardrobe.
+                        </p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="item-tags">
+                        <h4>Tags</h4>
+                        <div class="tags-list">
+                            <span class="tag">vintage</span>
+                            <span class="tag">floral</span>
+                            <span class="tag">summer</span>
+                            <span class="tag">casual</span>
+                            <span class="tag">feminine</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="item-actions">
+                        <button class="btn btn-primary action-btn" onclick="redeemItem()">
+                            <i class="fas fa-coins"></i>
+                            Redeem with Points
+                        </button>
+                        <button class="btn btn-secondary action-btn" onclick="requestSwap()">
+                            <i class="fas fa-exchange-alt"></i>
+                            Request Swap
+                        </button>
+                        <button class="btn btn-outline action-btn" onclick="sendMessage()">
+                            <i class="fas fa-envelope"></i>
+                            Message Owner
+                        </button>
+                    </div>
+
+                    <!-- Owner Information -->
+                    <div class="owner-info glass-card">
+                        <h4>Listed by</h4>
+                        <div class="owner-profile">
+                            <img src="https://pixabay.com/get/g4c573ecf613df4b61c8312bd8e57d2c40e17d51a7ba1426c1a87fa17137f754a486359f6853bc4009f49b8ad70a1ccf0838d47e817b54f83fc4fd3cab82e9ac0_1280.jpg" alt="Owner Avatar" class="owner-avatar">
+                            <div class="owner-details">
+                                <h5 id="ownerName">Sarah Chen</h5>
+                                <div class="owner-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9 rating</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <span>23 swaps</span>
+                                    </div>
+                                </div>
+                                <p class="owner-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    San Francisco, CA
+                                </p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm view-profile-btn">
+                            View Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Items -->
+            <div class="similar-items">
+                <h3>Similar Items You Might Like</h3>
+                <div class="similar-items-grid">
+                    <div class="clothing-item" onclick="window.location.href='item-detail.html?id=2'">
+                        <div class="item-image">
+                            <img src="https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg" alt="Similar Item">
+                            <div class="item-overlay">
+                                <button class="quick-view-btn">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h4>Summer Casual Top</h4>
+                            <p class="item-category">Tops</p>
+                            <div class="item-meta">
+                                <span class="points">30 pts</span>
+                                <span class="size">Size M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clothing-item" onclick="window.location.href='item-detail.html?id=3'">
+                        <div class="item-image">
+                            <img src="https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg" alt="Similar Item">
+                            <div class="item-overlay">
+                                <button class="quick-view-btn">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h4>Business Shirt</h4>
+                            <p class="item-category">Tops</p>
+                            <div class="item-meta">
+                                <span class="points">40 pts</span>
+                                <span class="size">Size M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clothing-item" onclick="window.location.href='item-detail.html?id=4'">
+                        <div class="item-image">
+                            <img src="https://pixabay.com/get/gf0ae49d0aa6ab8e622fcfdcbea1882cb9db70e64f359c9afc0fea4b1ff4ac62420807f9c753f955685362b561aff61c578875560d7d1447a68a501884d9c7a69_1280.jpg" alt="Similar Item">
+                            <div class="item-overlay">
+                                <button class="quick-view-btn">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h4>Designer Bag</h4>
+                            <p class="item-category">Accessories</p>
+                            <div class="item-meta">
+                                <span class="points">80 pts</span>
+                                <span class="size">One Size</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

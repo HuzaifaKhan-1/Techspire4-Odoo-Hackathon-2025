@@ -508,7 +508,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-2xl) var(--spacing-md);
+  padding: calc(var(--spacing-2xl) + 80px) var(--spacing-md) var(--spacing-2xl);
   position: relative;
   overflow: hidden;
   background: var(--gradient-hero);
@@ -518,7 +518,7 @@ a:hover {
 .clothes-carousel-bottom {
   position: absolute;
   width: 500%;
-  height: 160px;
+  height: 140px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -530,32 +530,20 @@ a:hover {
 .clothes-carousel-top {
   top: 8%;
   animation: scrollLeft 50s linear infinite;
-  transform: rotateX(20deg) rotateY(-12deg) rotateZ(-10deg);
-  filter: drop-shadow(0 10px 20px rgba(139, 92, 246, 0.3));
+  transform: none;
+  filter: drop-shadow(0 5px 15px rgba(139, 92, 246, 0.25));
 }
 
 .clothes-carousel-bottom {
-  bottom: 8%;
-  animation: scrollRight 45s linear infinite;
-  transform: rotateX(-20deg) rotateY(12deg) rotateZ(10deg);
-  filter: drop-shadow(0 -10px 20px rgba(139, 92, 246, 0.3));
-}
-
-/* Enhanced carousel positioning for better depth */
-.clothes-carousel-top .clothes-item-bg:nth-child(2n) {
-  margin-top: -15px;
-}
-
-.clothes-carousel-top .clothes-item-bg:nth-child(3n) {
-  margin-top: 10px;
-}
-
-.clothes-carousel-bottom .clothes-item-bg:nth-child(2n) {
-  margin-bottom: -15px;
-}
-
-.clothes-carousel-bottom .clothes-item-bg:nth-child(3n) {
-  margin-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid var(--glass-border);
 }
 
 .clothes-item-bg {
@@ -565,14 +553,13 @@ a:hover {
   background-size: cover;
   background-position: center;
   opacity: 0.85;
-  filter: blur(0.3px) saturate(1.1);
+  filter: blur(0px) saturate(1.1);
   transition: all var(--transition-normal);
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
   border: 2px solid rgba(255, 255, 255, 0.15);
-  transform: rotateY(0deg) rotateX(0deg);
+  transform: scale(1);
   position: relative;
-  animation: float 6s ease-in-out infinite;
-  animation-delay: calc(var(--animation-delay, 0) * 0.5s);
+  cursor: pointer;
 }
 
 .clothes-item-bg::before {
@@ -589,44 +576,16 @@ a:hover {
 }
 
 .clothes-item-bg:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.15);
+  transform: scale(1.3);
   opacity: 1;
-  filter: blur(0px) saturate(1.3) brightness(1.1);
-  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
-  animation-play-state: paused;
+  filter: blur(0px) saturate(1.4) brightness(1.2);
+  box-shadow: 0 25px 60px rgba(139, 92, 246, 0.5);
+  z-index: 10;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .clothes-item-bg:hover::before {
   opacity: 1;
-}
-
-.clothes-item-bg:nth-child(1) { --animation-delay: 0; }
-.clothes-item-bg:nth-child(2) { --animation-delay: 1; }
-.clothes-item-bg:nth-child(3) { --animation-delay: 2; }
-.clothes-item-bg:nth-child(4) { --animation-delay: 3; }
-.clothes-item-bg:nth-child(5) { --animation-delay: 4; }
-.clothes-item-bg:nth-child(6) { --animation-delay: 5; }
-.clothes-item-bg:nth-child(7) { --animation-delay: 6; }
-.clothes-item-bg:nth-child(8) { --animation-delay: 7; }
-.clothes-item-bg:nth-child(9) { --animation-delay: 8; }
-.clothes-item-bg:nth-child(10) { --animation-delay: 9; }
-.clothes-item-bg:nth-child(11) { --animation-delay: 10; }
-.clothes-item-bg:nth-child(12) { --animation-delay: 11; }
-
-.clothes-item-bg:nth-child(even) {
-  transform: rotateY(-8deg) rotateX(8deg);
-}
-
-.clothes-item-bg:nth-child(odd) {
-  transform: rotateY(8deg) rotateX(-8deg);
-}
-
-.clothes-item-bg:nth-child(3n) {
-  transform: rotateY(0deg) rotateX(12deg);
-}
-
-.clothes-item-bg:nth-child(4n) {
-  transform: rotateY(-12deg) rotateX(0deg);
 }
 
 .hero-content {
@@ -635,11 +594,15 @@ a:hover {
   gap: var(--spacing-2xl);
   align-items: center;
   max-width: 1200px;
-  z-index: 2;
+  z-index: 5;
+  position: relative;
+  margin-top: var(--spacing-xl);
 }
 
 .hero-text {
   text-align: left;
+  position: relative;
+  z-index: 10;
 }
 
 .title-and-badge {
@@ -652,15 +615,26 @@ a:hover {
 .title-main {
   font-size: 4rem;
   font-weight: 800;
+  position: relative;
+  z-index: 10;
+  color: var(--text-primary);
+}
+
+.title-main .re-highlight + span {
   background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
 }
 
 .re-highlight {
   position: relative;
   display: inline-block;
+  z-index: 10;
+  color: var(--primary-color) !important;
+  -webkit-text-fill-color: var(--primary-color) !important;
+  background: none !important;
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.5);
+  font-weight: 800;
 }
 
 .re-highlight::after {
@@ -762,10 +736,12 @@ a:hover {
 
 .fashion-showcase {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-lg);
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--spacing-xl);
   position: relative;
+  height: 300px;
 }
 
 .showcase-item {
@@ -796,26 +772,28 @@ a:hover {
 
 .showcase-item:nth-child(1) {
   animation-delay: 0s;
-  align-self: flex-start;
-  margin-left: 20px;
+  margin-bottom: 80px;
+  order: 1;
 }
 
 .showcase-item:nth-child(2) {
   animation-delay: 1s;
-  align-self: center;
+  margin-bottom: 0px;
+  order: 2;
+  transform: scale(1.1);
 }
 
 .showcase-item:nth-child(3) {
   animation-delay: 2s;
-  align-self: flex-end;
-  margin-right: 20px;
+  margin-bottom: 80px;
+  order: 3;
 }
 
 .showcase-item:hover {
   transform: translateY(-15px) scale(1.08);
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
-  animation-play-state: paused;
+  animation-play_state: paused;
 }
 
 @keyframes float-showcase {
@@ -860,6 +838,49 @@ a:hover {
   margin-top: var(--spacing-2xl);
   text-align: center;
   width: 100%;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Bottom Carousel Section */
+.bottom-carousel-section {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(167, 139, 250, 0.08) 100%);
+  overflow: visible;
+  margin-top: var(--spacing-2xl);
+  z-index: 50;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.bottom-carousel-section .clothes-item-bg {
+  opacity: 0.9;
+  filter: blur(0px) saturate(1.3) brightness(1.1);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4), 0 5px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.bottom-carousel-section .clothes-item-bg:hover {
+  opacity: 1;
+  filter: blur(0px) saturate(1.4) brightness(1.2);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.5), 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: scale(1.3);
+  z-index: 10;
+}
+
+.bottom-carousel-content {
+  position: absolute;
+  width: 500%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation: scrollRight 45s linear infinite;
+  filter: drop-shadow(0 -5px 15px rgba(139, 92, 246, 0.25));
+  z-index: 100;
 }
 
 .gallery-title {
@@ -924,6 +945,8 @@ a:hover {
 .stats-section {
   padding: var(--spacing-2xl) 0;
   background: var(--bg-secondary);
+  position: relative;
+  z-index: 20;
 }
 
 .section-title {
@@ -973,6 +996,8 @@ a:hover {
 /* CTA Section */
 .cta-section {
   padding: var(--spacing-2xl) 0;
+  position: relative;
+  z-index: 20;
 }
 
 .cta-content {
@@ -2049,8 +2074,7 @@ a:hover {
   align-items: center;
   gap: var(--spacing-xs);
   font-size: 0.875rem;
-  color: var(--text-secondary);
-}
+  color: var(--text-secondary);}
 
 .achievements h4 {
   margin-bottom: var(--spacing-md);
@@ -2683,6 +2707,18 @@ a:hover {
   padding: var(--spacing-xl);
 }
 
+.stat-content h3 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-trend {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
 .stat-trend.warning {
   color: var(--warning-color);
 }
@@ -3039,36 +3075,23 @@ a:hover {
 
 @keyframes scrollLeft {
   0% { 
-    transform: rotateX(20deg) rotateY(-12deg) rotateZ(-10deg) translateX(0); 
+    transform: translateX(0); 
   }
   100% { 
-    transform: rotateX(20deg) rotateY(-12deg) rotateZ(-10deg) translateX(-20%); 
+    transform: translateX(-20%); 
   }
 }
 
 @keyframes scrollRight {
   0% { 
-    transform: rotateX(-20deg) rotateY(12deg) rotateZ(10deg) translateX(-20%); 
+    transform: translateX(-20%); 
   }
   100% { 
-    transform: rotateX(-20deg) rotateY(12deg) rotateZ(10deg) translateX(0); 
+    transform: translateX(0); 
   }
 }
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotateY(0deg) rotateX(0deg); 
-  }
-  25% { 
-    transform: translateY(-8px) rotateY(3deg) rotateX(2deg); 
-  }
-  50% { 
-    transform: translateY(-4px) rotateY(0deg) rotateX(-1deg); 
-  }
-  75% { 
-    transform: translateY(-12px) rotateY(-3deg) rotateX(1deg); 
-  }
-}
+
 
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
@@ -3098,19 +3121,19 @@ a:hover {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .auth-container {
     grid-template-columns: 1fr;
   }
-  
+
   .item-detail-container {
     grid-template-columns: 1fr;
   }
-  
+
   .add-item-container {
     grid-template-columns: 1fr;
   }
-  
+
   .dashboard-stats {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
@@ -3125,11 +3148,11 @@ a:hover {
     --spacing-xl: 1.5rem;
     --spacing-2xl: 2rem;
   }
-  
+
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
   h3 { font-size: 1.5rem; }
-  
+
   .nav-menu {
     position: fixed;
     top: 100%;
@@ -3145,142 +3168,143 @@ a:hover {
     visibility: hidden;
     transition: all var(--transition-normal);
   }
-  
+
   .nav-menu.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
-  
+
   .nav-toggle {
     display: flex;
   }
-  
+
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
-  
+
   .nav-toggle.active span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
   }
-  
+
   .title-main {
     font-size: 2.5rem;
   }
-  
+
   .title-sub {
     font-size: 1.5rem;
   }
-  
+
   .hero-features {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  
+
   .feature-divider {
     transform: rotate(90deg);
   }
-  
+
   .hero-buttons {
     flex-direction: column;
   }
-  
+
   .fashion-showcase {
     grid-template-columns: 1fr;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
   .cta-buttons {
     flex-direction: column;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .filter-controls {
     grid-template-columns: 1fr;
   }
-  
+
   .points-range {
     grid-column: span 1;
   }
-  
+
   .results-summary {
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: flex-start;
   }
-  
+
   .items-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    ```text
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-  
+
   .similar-items-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
   .dashboard-header {
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: flex-start;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .form-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .progress-indicator {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  
+
   .progress-line {
     width: 2px;
     height: 50px;
     margin: var(--spacing-sm) 0;
   }
-  
+
   .form-navigation {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  
+
   .admin-header {
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: flex-start;
   }
-  
+
   .admin-actions {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .profile-content {
     grid-template-columns: 1fr;
   }
-  
+
   .category-tabs {
     flex-wrap: wrap;
   }
-  
+
   .card-tabs {
     flex-wrap: wrap;
   }
-  
+
   .filter-tabs {
     flex-wrap: wrap;
   }
@@ -3290,72 +3314,72 @@ a:hover {
   .container {
     padding: 0 var(--spacing-sm);
   }
-  
+
   .hero {
     padding: var(--spacing-xl) var(--spacing-sm);
   }
-  
+
   .title-main {
     font-size: 2rem;
   }
-  
+
   .title-sub {
     font-size: 1.25rem;
   }
-  
+
   .title-and-badge {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
-  
+
   .items-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .dashboard-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .admin-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .analytics-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .pending-item {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  
+
   .item-thumbnail {
     width: 100%;
     height: 200px;
   }
-  
+
   .item-row {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-sm);
   }
-  
+
   .item-row img {
     width: 100%;
     height: 150px;
   }
-  
+
   .request-item {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
-  
+
   .activity-item {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-sm);
   }
-  
+
   .report-item {
     flex-direction: column;
     gap: var(--spacing-sm);
@@ -3372,12 +3396,12 @@ a:hover {
   .footer {
     display: none !important;
   }
-  
+
   body {
     background: white !important;
     color: black !important;
   }
-  
+
   .glass-card {
     background: white !important;
     border: 1px solid #ccc !important;
@@ -3393,7 +3417,7 @@ a:hover {
     --text-secondary: #000;
     --text-muted: #333;
   }
-  
+
   [data-theme="dark"] {
     --glass-bg: rgba(0, 0, 0, 0.95);
     --glass-border: #fff;
@@ -3515,13 +3539,13 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .clothes-carousel-top,
   .clothes-carousel-bottom,
   .gallery-track {
     animation: none !important;
   }
-  
+
   .hero-text,
   .hero-visual,
   .clothes-gallery,

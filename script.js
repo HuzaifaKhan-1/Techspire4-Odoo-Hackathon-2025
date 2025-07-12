@@ -5,6 +5,7 @@ let navbar = null;
 let loadingScreen = null;
 let navMenu = null;
 
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all elements

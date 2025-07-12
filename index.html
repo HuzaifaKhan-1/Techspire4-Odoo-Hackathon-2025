@@ -755,102 +755,57 @@
     </section>
 
     <!-- Dashboard Section -->
-    <section class="dashboard" id="dashboard">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Your Dashboard</h2>
-                <p class="section-subtitle">Track your swaps, points, and eco-impact</p>
-            </div>
-            <div class="dashboard-stats">
-                <div class="stat-card glass-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Points Balance</h3>
-                        <p class="stat-value">245</p>
-                    </div>
-                </div>
-                <div class="stat-card glass-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-upload"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Items Uploaded</h3>
-                        <p class="stat-value">12</p>
-                    </div>
-                </div>
-                <div class="stat-card glass-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Successful Swaps</h3>
-                        <p class="stat-value">8</p>
-                    </div>
-                </div>
-                <div class="stat-card glass-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>CO₂ Saved</h3>
-                        <p class="stat-value">15.6kg</p>
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard-content">
-                <div class="eco-badges">
-                    <h3>Your Eco Badges</h3>
-                    <div class="badges-grid">
-                        <div class="badge earned">
-                            <i class="fas fa-seedling"></i>
-                            <span>Green Starter</span>
-                        </div>
-                        <div class="badge earned">
-                            <i class="fas fa-recycle"></i>
-                            <span>Eco Warrior</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-award"></i>
-                            <span>Swap Master</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-crown"></i>
-                            <span>Planet Saver</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="recent-activity">
-                    <h3>Recent Activity</h3>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <i class="fas fa-exchange-alt"></i>
-                            <div class="activity-content">
-                                <p><strong>Swapped:</strong> Vintage Denim Jacket</p>
-                                <span class="activity-time">2 days ago</span>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <i class="fas fa-upload"></i>
-                            <div class="activity-content">
-                                <p><strong>Uploaded:</strong> Summer Floral Dress</p>
-                                <span class="activity-time">5 days ago</span>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <i class="fas fa-coins"></i>
-                            <div class="activity-content">
-                                <p><strong>Earned:</strong> 50 points from upload</p>
-                                <span class="activity-time">1 week ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="dashboard" class="dashboard-section container section-padding">
+    <div class="section-header">
+        <h2 class="section-title">Your Dashboard</h2>
+        <p class="section-subtitle">Overview of your ReWear activity.</p>
+    </div>
 
+    <div class="dashboard-grid">
+        <div class="glass-card dashboard-overview">
+            <h3>Welcome Back, User!</h3>
+            <p>You have <span id="pendingSwapsCount">0</span> pending swap requests.</p>
+            <p>You've uploaded <span id="uploadedItemsCount">0</span> items so far.</p>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <h4>Total Swaps</h4>
+                    <p id="totalSwaps">0</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Points Earned</h4>
+                    <p id="pointsEarned">0</p>
+                </div>
+            </div>
+            <a href="#browse" class="btn btn-primary">Browse New Items</a>
+        </div>
+
+        <div class="glass-card dashboard-chart-card">
+            <h3>Your Uploads Trend</h3>
+            <canvas id="uploadsChart"></canvas>
+            <p class="chart-note">Data for last 6 months.</p>
+        </div>
+
+        <div class="glass-card dashboard-activity">
+            <h3>Recent Activity</h3>
+            <ul id="activityList">
+                <li><i class="fas fa-upload text-primary"></i> You uploaded "Vintage Denim Jacket". <span class="activity-time">2 hours ago</span></li>
+                <li><i class="fas fa-exchange-alt text-success"></i> Your "Blue Scarf" was swapped! <span class="activity-time">1 day ago</span></li>
+                <li><i class="fas fa-heart text-danger"></i> You added "Striped T-Shirt" to wishlist. <span class="activity-time">3 days ago</span></li>
+            </ul>
+            <a href="#" class="btn btn-secondary btn-small">View All Activity</a>
+        </div>
+
+        <div class="glass-card dashboard-quick-links">
+            <h3>Manage Your Account</h3>
+            <ul>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-tshirt"></i> My Uploads</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-handshake"></i> My Swaps</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-cog"></i> Account Settings</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-bell"></i> Notifications</a> <span class="notification-badge">3</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">

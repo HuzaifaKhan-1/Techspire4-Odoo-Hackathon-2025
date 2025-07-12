@@ -9,6 +9,7 @@ let uploadedImages = [];
 let currentImageIndex = 0;
 let selectedImages = [];
 
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all elements

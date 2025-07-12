@@ -202,6 +202,7 @@
     <!-- Statistics Section -->
     <section class="stats-section">
         <div class="container">
+<<<<<<< HEAD
             <h2 class="section-title gradient-text">Community Impact</h2>
             <div class="stats-grid">
                 <div class="stat-card glass-card">
@@ -238,6 +239,170 @@
 
     <!-- Call to Action -->
     <section class="cta-section">
+=======
+            <div class="section-header">
+                <h2 class="section-title">Upload Your Clothes</h2>
+                <p class="section-subtitle">Share your unused clothing and earn points</p>
+            </div>
+            <div class="upload-form-container">
+                <form class="upload-form glass-card" id="uploadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name *</label>
+                            <input type="text" id="itemName" name="itemName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category *</label>
+                            <select id="itemCategory" name="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="tops">Tops & T-Shirts</option>
+                                <option value="bottoms">Bottoms & Jeans</option>
+                                <option value="dresses">Dresses & Skirts</option>
+                                <option value="outerwear">Jackets & Coats</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="footwear">Shoes & Footwear</option>
+                                <option value="formal">Formal Wear</option>
+                                <option value="ethnic">Ethnic Wear</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemGender">Gender *</label>
+                            <select id="itemGender" name="itemGender" required>
+                                <option value="">Select Gender</option>
+                                <option value="men">Men</option>
+                                <option value="women">Women</option>
+                                <option value="unisex">Unisex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemSize">Size *</label>
+                            <select id="itemSize" name="itemSize" required>
+                                <option value="">Select Size</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">XXL</option>
+                                <option value="One Size">One Size</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCondition">Condition *</label>
+                            <select id="itemCondition" name="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Like New (Excellent)</option>
+                                <option value="good">Very Good</option>
+                                <option value="fair">Good Condition</option>
+                                <option value="used">Well Worn</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemColor">Color</label>
+                            <select id="itemColor" name="itemColor">
+                                <option value="">Select Color</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="pink">Pink</option>
+                                <option value="purple">Purple</option>
+                                <option value="multicolor">Multicolor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" name="itemDescription" rows="4" placeholder="Describe your item..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemTags">Tags (comma-separated)</label>
+                        <input type="text" id="itemTags" name="itemTags" placeholder="vintage, casual, summer...">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemImage">Upload Image</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop an image or click to browse</p>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                        Upload Item
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section container section-padding">
+    <div class="section-header">
+        <h2 class="section-title">Your Dashboard</h2>
+        <p class="section-subtitle">Overview of your ReWear activity.</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="glass-card dashboard-overview">
+            <h3>Welcome Back, User!</h3>
+            <p>You have <span id="pendingSwapsCount">0</span> pending swap requests.</p>
+            <p>You've uploaded <span id="uploadedItemsCount">0</span> items so far.</p>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <h4>Total Swaps</h4>
+                    <p id="totalSwaps">0</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Points Earned</h4>
+                    <p id="pointsEarned">0</p>
+                </div>
+            </div>
+            <a href="#browse" class="btn btn-primary">Browse New Items</a>
+        </div>
+
+        <div class="glass-card dashboard-chart-card">
+            <h3>Your Uploads Trend</h3>
+            <canvas id="uploadsChart"></canvas>
+            <p class="chart-note">Data for last 6 months.</p>
+        </div>
+
+        <div class="glass-card dashboard-activity">
+            <h3>Recent Activity</h3>
+            <ul id="activityList">
+                <li><i class="fas fa-upload text-primary"></i> You uploaded "Vintage Denim Jacket". <span class="activity-time">2 hours ago</span></li>
+                <li><i class="fas fa-exchange-alt text-success"></i> Your "Blue Scarf" was swapped! <span class="activity-time">1 day ago</span></li>
+                <li><i class="fas fa-heart text-danger"></i> You added "Striped T-Shirt" to wishlist. <span class="activity-time">3 days ago</span></li>
+            </ul>
+            <a href="#" class="btn btn-secondary btn-small">View All Activity</a>
+        </div>
+
+        <div class="glass-card dashboard-quick-links">
+            <h3>Manage Your Account</h3>
+            <ul>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-tshirt"></i> My Uploads</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-handshake"></i> My Swaps</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-cog"></i> Account Settings</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-bell"></i> Notifications</a> <span class="notification-badge">3</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+>>>>>>> eb8a8e85f4ee26948ae1a03b59b21a5b594bb188
         <div class="container">
             <div class="cta-content glass-card">
                 <h2>Ready to Start Your Sustainable Fashion Journey?</h2>

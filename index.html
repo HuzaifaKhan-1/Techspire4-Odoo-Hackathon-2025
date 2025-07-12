@@ -31,17 +31,19 @@
                 <span>♻️ ReWear</span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#browse" class="nav-link">Browse</a></li>
-                <li><a href="#upload" class="nav-link">Upload</a></li>
-                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="add-item.html" class="nav-link">List Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
             </ul>
             <div class="nav-controls">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
+                <div class="user-menu" id="userMenu">
+                    <button class="btn btn-outline btn-sm" onclick="window.location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.location.href='register.html'">Sign Up</button>
+                </div>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
@@ -52,210 +54,147 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <!-- Curved Clothes Carousel Top -->
         <div class="clothes-carousel-top">
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/gf0ae49d0aa6ab8e622fcfdcbea1882cb9db70e64f359c9afc0fea4b1ff4ac62420807f9c753f955685362b561aff61c578875560d7d1447a68a501884d9c7a69_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/gd114866012d9de6b28a5f3e95364d9176892eb3549beb8c7a21c22307b1fb0d8c3ff0c2919bc87e946cf13390821428a2c9a6349c7e9ea0600793240f7f0f3aa_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g5ad9a45355dee8906dee441819d056cb54ee8dc811247e233fd89b126ba24af825047e367ed133f417c177b66ae78ad69b5448ad9290048ab8369fda4f7c713e_1280.jpg')"></div>
         </div>
-
+        
         <!-- Curved Clothes Carousel Bottom -->
         <div class="clothes-carousel-bottom">
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop')"></div>
-            <div class="clothes-item-bg" style="background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=100&h=100&fit=crop')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/gb2697e3264f18ca7ef69598ba114c798abf69cb72474be7e2fb376091897d891e996b8fa4da96088b9647fc3b6a708814ba51fd3f3e6b6a6ffac707eed842e71_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g3c7f0022f980d157b8064f0dbabe39c8d11e0e198e684dfc30f1c6f921cf85b4f0c8f228da47a642b6327dde489185604669f7ed077c70f40eae5d895d606107_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg')"></div>
+            <div class="clothes-item-bg" style="background-image: url('https://pixabay.com/get/gf0ae49d0aa6ab8e622fcfdcbea1882cb9db70e64f359c9afc0fea4b1ff4ac62420807f9c753f955685362b561aff61c578875560d7d1447a68a501884d9c7a69_1280.jpg')"></div>
         </div>
+
         <div class="hero-content">
-        <!-- Left Side -->
-        <div class="hero-text">
-            <h1 class="hero-title">
-            <div class="title-and-badge">
-                <span class="title-main">ReWear</span>
-                <div class="hero-badge">
-                <i class="fas fa-recycle"></i>
-                <span>Sustainable Fashion Platform</span>
+            <!-- Left Side -->
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <div class="title-and-badge">
+                        <span class="title-main">ReWear</span>
+                        <div class="hero-badge">
+                            <i class="fas fa-recycle"></i>
+                            <span>Sustainable Fashion Platform</span>
+                        </div>
+                    </div>
+                    <span class="title-sub">
+                        Your 
+                        <span style="background: linear-gradient(135deg, #f97316, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; text-shadow: 1px 1px 8px rgba(249, 115, 22, 0.3);">Clothes</span>, 
+                        New 
+                        <span style="background: linear-gradient(135deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; text-shadow: 1px 1px 8px rgba(34, 197, 94, 0.3);">Stories</span>
+                    </span>
+                </h1>
+                <p class="hero-description">
+                    Transform your wardrobe sustainably. Upload unused clothes, earn points, and discover pre-loved fashion treasures from our eco-conscious community.
+                </p>
+
+                <!-- Flow: Upload -> Swap -> Earn -> Save Planet -->
+                <div class="hero-features">
+                    <div class="feature-item" data-flow="upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Upload</span>
+                    </div>
+                    <div class="feature-divider">→</div>
+                    <div class="feature-item" data-flow="swap">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Swap</span>
+                    </div>
+                    <div class="feature-divider">→</div>
+                    <div class="feature-item" data-flow="earn">
+                        <i class="fas fa-coins"></i>
+                        <span>Earn</span>
+                    </div>
+                    <div class="feature-divider">→</div>
+                    <div class="feature-item" data-flow="planet">
+                        <i class="fas fa-seedling"></i>
+                        <span>Save Planet</span>
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='register.html'">
+                        <i class="fas fa-plus"></i>
+                        Start Swapping
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='browse.html'">
+                        <i class="fas fa-search"></i>
+                        Browse Items
+                    </button>
                 </div>
             </div>
-            
-            <span class="title-sub">
-  Your 
-  <span style="
-    background: linear-gradient(135deg, #f97316, #ec4899); /* orange to pink */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    text-shadow: 1px 1px 8px rgba(249, 115, 22, 0.3); /* orange glow */
-  ">Clothes</span>, 
-  New 
-  <span style="
-    background: linear-gradient(135deg, #22c55e, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    text-shadow: 1px 1px 8px rgba(34, 197, 94, 0.3);
-  ">Stories</span>
-</span>
 
-
-
-            </h1>
-            <p class="hero-description">
-            Transform your wardrobe sustainably. Upload unused clothes, earn points, and discover pre-loved fashion treasures from our eco-conscious community.
-            </p>
-
-            <!-- Flow: Upload -> Swap -> Earn -> Save Planet -->
-            <div class="hero-features">
-            <div class="feature-item" data-flow="upload">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <span>Upload</span>
-            </div>
-            <div class="feature-divider">→</div>
-            <div class="feature-item" data-flow="swap">
-            <i class="fas fa-exchange-alt"></i>
-            <span>Swap</span>
-            </div>
-            <div class="feature-divider">→</div>
-            <div class="feature-item" data-flow="earn">
-            <i class="fas fa-coins"></i>
-            <span>Earn</span>
-            </div>
-            <div class="feature-divider">→</div>
-            <div class="feature-item" data-flow="planet">
-            <i class="fas fa-seedling"></i>
-            <span>Save Planet</span>
+            <!-- Right Side: Fashion Cards -->
+            <div class="hero-visual">
+                <div class="fashion-showcase">
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Casual Wear</h3>
+                        <p>Everyday comfort pieces</p>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Accessories</h3>
+                        <p>Perfect finishing touches</p>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <h3>Footwear</h3>
+                        <p>Step into style</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-            <!-- Moved buttons BELOW the flow -->
-            <div class="hero-buttons">
-            <button class="btn btn-primary" id="uploadBtn">
-                <i class="fas fa-plus"></i>
-                Start Uploading
-            </button>
-            <button class="btn btn-secondary" id="browseBtn">
-                <i class="fas fa-search"></i>
-                Explore Collection
-            </button>
-            </div>
-        </div>
-
-        <!-- Right Side: Fashion Cards -->
-        <div class="hero-visual">
-            <div class="fashion-showcase">
-            <div class="showcase-item">
-                <div class="showcase-icon">
-                <i class="fas fa-tshirt"></i>
-                </div>
-                <h3>Casual Wear</h3>
-                <p>Everyday comfort pieces</p>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-icon">
-                <i class="fas fa-gem"></i>
-                </div>
-                <h3>Accessories</h3>
-                <p>Perfect finishing touches</p>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-icon">
-                <i class="fas fa-shoe-prints"></i>
-                </div>
-                <h3>Footwear</h3>
-                <p>Step into style</p>
-            </div>
-            </div>
-        </div>
-        </div>
-
-
-        <!-- Horizontal Scrolling Clothes Gallery -->
+        <!-- Featured Items Gallery -->
         <div class="clothes-gallery">
-            <h3 class="gallery-title">Trending Fashion Styles</h3>
+            <h3 class="gallery-title">Featured Items</h3>
             <div class="gallery-container">
                 <div class="gallery-track" id="galleryTrack">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=400&fit=crop" alt="Elegant Dress">
+                    <div class="gallery-item" onclick="window.location.href='item-detail.html?id=1'">
+                        <img src="https://pixabay.com/get/g86a1c2f1ed04416a34a93146c3f417fc59931854980d52d6afac0b600cf7a67dce68cc61d0b06f70f6ee538636390d3ff6f9004ef1f9326030ac615c5ae65809_1280.jpg" alt="Elegant Dress">
                         <div class="gallery-overlay">
-                            <span>Elegant Dresses</span>
+                            <span>Vintage Dress</span>
+                            <div class="points">50 pts</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop" alt="Casual Wear">
+                    <div class="gallery-item" onclick="window.location.href='item-detail.html?id=2'">
+                        <img src="https://pixabay.com/get/g70f24aa2ad9709fcd2da6668beedefb8276cb58b5d1f8a050b7af7187f86f15e5e1fab07ad283c75863ed696ff761f8582e44e7c755b9cee585a5b3f1b910af4_1280.jpg" alt="Casual Wear">
                         <div class="gallery-overlay">
-                            <span>Casual Comfort</span>
+                            <span>Summer Top</span>
+                            <div class="points">30 pts</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=400&fit=crop" alt="Business Attire">
+                    <div class="gallery-item" onclick="window.location.href='item-detail.html?id=3'">
+                        <img src="https://pixabay.com/get/g7f981624e56415b46f017977a355d26bc6c4e677cf4d96a82f4822798a282d2213b25a4b95943ae299605630e530e761ad2c7e2336f7f6b34eb302e5b448047c_1280.jpg" alt="Business Attire">
                         <div class="gallery-overlay">
-                            <span>Business Style</span>
+                            <span>Business Shirt</span>
+                            <div class="points">40 pts</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=400&fit=crop" alt="Summer Fashion">
+                    <div class="gallery-item" onclick="window.location.href='item-detail.html?id=4'">
+                        <img src="https://pixabay.com/get/gf0ae49d0aa6ab8e622fcfdcbea1882cb9db70e64f359c9afc0fea4b1ff4ac62420807f9c753f955685362b561aff61c578875560d7d1447a68a501884d9c7a69_1280.jpg" alt="Designer Bag">
                         <div class="gallery-overlay">
-                            <span>Summer Vibes</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&h=400&fit=crop" alt="Winter Collection">
-                        <div class="gallery-overlay">
-                            <span>Winter Collection</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=300&h=400&fit=crop" alt="Vintage Style">
-                        <div class="gallery-overlay">
-                            <span>Vintage Treasures</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=300&h=400&fit=crop" alt="Street Fashion">
-                        <div class="gallery-overlay">
-                            <span>Street Fashion</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&h=400&fit=crop" alt="Formal Wear">
-                        <div class="gallery-overlay">
-                            <span>Formal Elegance</span>
+                            <span>Designer Bag</span>
+                            <div class="points">80 pts</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-number" data-target="1250">0</span>
-                <span class="stat-label">Items Swapped</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="850">0</span>
-                <span class="stat-label">Active Users</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="2500">0</span>
-                <span class="stat-label">CO₂ Saved (kg)</span>
             </div>
         </div>
     </section>
@@ -263,6 +202,7 @@
     <!-- Statistics Section -->
     <section class="stats-section">
         <div class="container">
+<<<<<<< HEAD
             <h2 class="section-title gradient-text">Community Impact</h2>
             <div class="stats-grid">
                 <div class="stat-card glass-card">
@@ -299,6 +239,170 @@
 
     <!-- Call to Action -->
     <section class="cta-section">
+=======
+            <div class="section-header">
+                <h2 class="section-title">Upload Your Clothes</h2>
+                <p class="section-subtitle">Share your unused clothing and earn points</p>
+            </div>
+            <div class="upload-form-container">
+                <form class="upload-form glass-card" id="uploadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name *</label>
+                            <input type="text" id="itemName" name="itemName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category *</label>
+                            <select id="itemCategory" name="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="tops">Tops & T-Shirts</option>
+                                <option value="bottoms">Bottoms & Jeans</option>
+                                <option value="dresses">Dresses & Skirts</option>
+                                <option value="outerwear">Jackets & Coats</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="footwear">Shoes & Footwear</option>
+                                <option value="formal">Formal Wear</option>
+                                <option value="ethnic">Ethnic Wear</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemGender">Gender *</label>
+                            <select id="itemGender" name="itemGender" required>
+                                <option value="">Select Gender</option>
+                                <option value="men">Men</option>
+                                <option value="women">Women</option>
+                                <option value="unisex">Unisex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemSize">Size *</label>
+                            <select id="itemSize" name="itemSize" required>
+                                <option value="">Select Size</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">XXL</option>
+                                <option value="One Size">One Size</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCondition">Condition *</label>
+                            <select id="itemCondition" name="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Like New (Excellent)</option>
+                                <option value="good">Very Good</option>
+                                <option value="fair">Good Condition</option>
+                                <option value="used">Well Worn</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemColor">Color</label>
+                            <select id="itemColor" name="itemColor">
+                                <option value="">Select Color</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="pink">Pink</option>
+                                <option value="purple">Purple</option>
+                                <option value="multicolor">Multicolor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" name="itemDescription" rows="4" placeholder="Describe your item..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemTags">Tags (comma-separated)</label>
+                        <input type="text" id="itemTags" name="itemTags" placeholder="vintage, casual, summer...">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemImage">Upload Image</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="itemImage" name="itemImage" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop an image or click to browse</p>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                        Upload Item
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section container section-padding">
+    <div class="section-header">
+        <h2 class="section-title">Your Dashboard</h2>
+        <p class="section-subtitle">Overview of your ReWear activity.</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="glass-card dashboard-overview">
+            <h3>Welcome Back, User!</h3>
+            <p>You have <span id="pendingSwapsCount">0</span> pending swap requests.</p>
+            <p>You've uploaded <span id="uploadedItemsCount">0</span> items so far.</p>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <h4>Total Swaps</h4>
+                    <p id="totalSwaps">0</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Points Earned</h4>
+                    <p id="pointsEarned">0</p>
+                </div>
+            </div>
+            <a href="#browse" class="btn btn-primary">Browse New Items</a>
+        </div>
+
+        <div class="glass-card dashboard-chart-card">
+            <h3>Your Uploads Trend</h3>
+            <canvas id="uploadsChart"></canvas>
+            <p class="chart-note">Data for last 6 months.</p>
+        </div>
+
+        <div class="glass-card dashboard-activity">
+            <h3>Recent Activity</h3>
+            <ul id="activityList">
+                <li><i class="fas fa-upload text-primary"></i> You uploaded "Vintage Denim Jacket". <span class="activity-time">2 hours ago</span></li>
+                <li><i class="fas fa-exchange-alt text-success"></i> Your "Blue Scarf" was swapped! <span class="activity-time">1 day ago</span></li>
+                <li><i class="fas fa-heart text-danger"></i> You added "Striped T-Shirt" to wishlist. <span class="activity-time">3 days ago</span></li>
+            </ul>
+            <a href="#" class="btn btn-secondary btn-small">View All Activity</a>
+        </div>
+
+        <div class="glass-card dashboard-quick-links">
+            <h3>Manage Your Account</h3>
+            <ul>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-tshirt"></i> My Uploads</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-handshake"></i> My Swaps</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-cog"></i> Account Settings</a></li>
+                <li><a href="#" class="dashboard-link"><i class="fas fa-bell"></i> Notifications</a> <span class="notification-badge">3</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+>>>>>>> eb8a8e85f4ee26948ae1a03b59b21a5b594bb188
         <div class="container">
             <div class="cta-content glass-card">
                 <h2>Ready to Start Your Sustainable Fashion Journey?</h2>
